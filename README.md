@@ -1,1 +1,1 @@
-# blog
+# Blog App In Hugo
