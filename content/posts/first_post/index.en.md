@@ -3,16 +3,15 @@ weight: 5
 title: "Test post"
 date: 2020-04-01T17:55:28+08:00
 lastmod: 2020-04-01T17:55:28+08:00
-draft: false
-author: "Vikas"
-authorLink: "https://geekyhub.in"
+draft: true
+author: "Faizaan Ahmed Khan"
 description: "Guide to emoji usage in Hugo and LoveIt."
 resources:
 - name: "featured-image"
   src: "featured-image.jpg"
 
-tags: ["emoji"]
-categories: ["Markdown"]
+tags: ["personal"]
+categories: [""]
 
 lightgallery: true
 ---

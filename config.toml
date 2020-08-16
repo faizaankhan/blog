@@ -11,7 +11,7 @@ themesDir = "themes"
 
 # website title
 # 网站标题
-title = "LoveIt"
+title = "Faizaan Khan"
 
 # whether to use robots.txt
 # 是否使用 robots.txt
@@ -68,11 +68,11 @@ enableEmoji = true
         title = ""
         weight = 3
       [[languages.en.menu.main]]
-        identifier = "documentation"
+        identifier = "personal"
         pre = ""
         post = ""
-        name = "Docs"
-        url = "/categories/documentation/"
+        name = "Personal"
+        url = "/categories/personal/"
         title = ""
         weight = 4
       [[languages.en.menu.main]]
@@ -145,7 +145,7 @@ enableEmoji = true
           # title shown in home page (HTML format is supported)
           title = ""
           # subtitle shown in home page
-          subtitle = "A Clean, Elegant but Advanced Hugo Theme"
+          # subtitle = "A Clean, Elegant but Advanced Hugo Theme"
           # whether to use typeit animation for subtitle
           typeit = true
           # whether to show social links
@@ -159,17 +159,19 @@ enableEmoji = true
           paginate = 6
       # Social config in home page
       [languages.en.params.social]
-        GitHub = "xxxx"
-        Linkedin = ""
-        Twitter = "xxxx"
-        Instagram = "xxxx"
-        Facebook = "xxxx"
-        Telegram = "xxxx"
+        GitHub = "https://github.com/faizaankhan"
+        Linkedin = "https://www.linkedin.com/in/khanfaizaan"
+        Twitter = "https://twitter.com/iamfaizaan_khan"
+        Instagram = "https://www.instagram.com/just_faizaan/"
+        Gitlab = "https://gitlab.com/faizaan.khan3"
+        Stackoverflow = "https://stackoverflow.com/users/6050091/faizaan-khan"
+        Email = "faizaan.khan3@gmail.com"
+        # Facebook = "xxxx"
+        # Telegram = "xxxx"
         Medium = ""
-        Gitlab = ""
-        Youtubelegacy = "xxxx"
-        Youtubecustom = ""
-        Youtubechannel = ""
+        # Youtubelegacy = "xxxx"
+        # Youtubecustom = ""
+        # Youtubechannel = ""
         Tumblr = ""
         Quora = ""
         Keybase = ""
@@ -178,7 +180,6 @@ enableEmoji = true
         Codepen = ""
         FreeCodeCamp = ""
         Bitbucket = ""
-        Stackoverflow = ""
         Weibo = ""
         Odnoklassniki = ""
         VK = ""
@@ -220,11 +221,7 @@ enableEmoji = true
         XMPP = ""
         Matrix = ""
         Bilibili = ""
-        Email = "xxxx@xxxx.com"
-        RSS = true
-        [languages.en.params.social.Mastodon]
-          id = "@xxxx"
-          prefix = "https://mastodon.technology/"
+        RSS = false
 [params]
   # LoveIt theme version
   # LoveIt 主题版本
@@ -262,10 +259,10 @@ enableEmoji = true
       logo = ""
       # title name
       # 标题名称
-      name = "LoveIt"
+      name = "Faizaan Khan"
       # you can add extra information before the name (HTML format is supported), such as icons
       # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
-      pre = "<i class='far fa-kiss-wink-heart fa-fw'></i>"
+      # pre = "<i class='far fa-kiss-wink-heart fa-fw'></i>"
       # you can add extra information after the name (HTML format is supported), such as icons
       # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
       post = ""
@@ -282,10 +279,10 @@ enableEmoji = true
     custom = ''
     # whether to show Hugo and theme info
     # 是否显示 Hugo 和主题信息
-    hugo = true
+    hugo = false
     # whether to show copyright info
     # 是否显示版权信息
-    copyright = true
+    copyright = false
     # whether to show the author
     # 是否显示作者
     author = true
@@ -423,23 +420,23 @@ enableEmoji = true
     [params.page.share]
       enable = true
       Twitter = true
-      Facebook = true
+      Facebook = false
       Linkedin = false
       Whatsapp = false
       Pinterest = false
       Tumblr = false
-      HackerNews = true
+      HackerNews = false
       Reddit = false
       VK = false
       Buffer = false
       Xing = false
-      Line = true
+      Line = false
       Instapaper = false
       Pocket = false
       Digg = false
       Stumbleupon = false
       Flipboard = false
-      Weibo = true
+      Weibo = false
       Renren = false
       Myspace = false
       Blogger = false
@@ -550,7 +547,7 @@ enableEmoji = true
       # Publisher info
       # 出版者信息
       [params.page.seo.publisher]
-        name = "xxxx"
+        name = "Faizaan Ahmed Khan"
         logoUrl = "/images/avatar.png"
 
   # TypeIt config
@@ -678,8 +675,8 @@ enableEmoji = true
 # Author config
 # 作者配置
 [author]
-  name = "xxxx"
-  email = ""
+  name = "Faizaan"
+  email = "faizaan[dot]khan3@gmail[dot]com"
   link = ""
 
 # Sitemap config
