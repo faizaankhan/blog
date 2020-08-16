@@ -8,7 +8,7 @@ author: "Faizaan Ahmed Khan"
 description: "Initial blogpost."
 resources:
 - name: "featured-image"
-  src: "Featured.png"
+  src: "Featured.jpeg"
 
 tags: ["personal"]
 categories: ["personal"]
