@@ -1,6 +1,6 @@
 ---
 weight: 1
-title: "Bare Minimum approach on using AWS DynamoDB"
+title: "Bare minimum approach on learning AWS DynamoDB"
 date: 2020-08-30T15:32:23+00:00
 lastmod: 2020-08-30T15:32:23+00:00
 draft: false
@@ -198,5 +198,13 @@ Checkout AWS SDK for DynamoDB which is supported for several languages, and can 
 ## Last words until the next one
 DynamoDB is one of the easiest no-sql databases to start working with, but as you keep exploring you can dive deeper into understanding its capabilities. In a follow-up article, I will be writing about indexes, read and write capacity units, API functions, and I will give a walkthrough on how you can use AWS APIs to create and manage a DyanmoDB table and show some CRUD operations.
 
-### References
-CAP Theorem image credits and source: https://www.mysoftkey.com/architecture/understanding-of-cap-theorem/
+## References
+Here are a few links this article takes inspiration from.
+
+https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html (AWS ecosystem example image)
+https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.html
+https://medium.com/tensult/core-concepts-of-amazon-dynamodb-a265a3fc70a
+https://opensourceforu.com/2017/05/different-types-nosql-databases/
+https://www.3pillarglobal.com/insights/exploring-the-different-types-of-nosql-databases
+https://www.mysoftkey.com/architecture/understanding-of-cap-theorem/  (CAP Theorem Diagram)
+https://www.geeksforgeeks.org/introduction-to-nosql/
