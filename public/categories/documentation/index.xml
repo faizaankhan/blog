@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Documentation - Category - Faizaan Khan</title>
-        <link>https://example.com/categories/documentation/</link>
+        <link>https://faizaankhan.com/categories/documentation/</link>
         <description>Documentation - Category - Faizaan Khan</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>faizaan[dot]khan3@gmail[dot]com (Faizaan)</managingEditor>
-            <webMaster>faizaan[dot]khan3@gmail[dot]com (Faizaan)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><atom:link href="https://example.com/categories/documentation/" rel="self" type="application/rss+xml" /></channel>
+            <webMaster>faizaan[dot]khan3@gmail[dot]com (Faizaan)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><atom:link href="https://faizaankhan.com/categories/documentation/" rel="self" type="application/rss+xml" /></channel>
 </rss>

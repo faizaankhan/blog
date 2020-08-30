@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Tech - Category - Faizaan Khan</title>
-        <link>https://example.com/categories/tech/</link>
+        <link>https://faizaankhan.com/categories/tech/</link>
         <description>Tech - Category - Faizaan Khan</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>faizaan[dot]khan3@gmail[dot]com (Faizaan)</managingEditor>
-            <webMaster>faizaan[dot]khan3@gmail[dot]com (Faizaan)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 30 Aug 2020 15:32:23 &#43;0000</lastBuildDate><atom:link href="https://example.com/categories/tech/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>faizaan[dot]khan3@gmail[dot]com (Faizaan)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 30 Aug 2020 15:32:23 &#43;0000</lastBuildDate><atom:link href="https://faizaankhan.com/categories/tech/" rel="self" type="application/rss+xml" /><item>
     <title>Bare minimum approach on learning AWS DynamoDB</title>
-    <link>https://example.com/post_1_dynamo/</link>
+    <link>https://faizaankhan.com/post_1_dynamo/</link>
     <pubDate>Sun, 30 Aug 2020 15:32:23 &#43;0000</pubDate>
     <author>Author</author>
-    <guid>https://example.com/post_1_dynamo/</guid>
+    <guid>https://faizaankhan.com/post_1_dynamo/</guid>
     <description><![CDATA[Why this post ? I am working with DynamoDB for some time now and on that journey I have explored about things that I would like to share. I am no master at Dynamo and nor does one needs to be for being able to utilize it&rsquo;s capacity. Here are most of the bare minimum things you need to know before jumping into starting to integrate DynamoDB to your application or before you chose it as a viable option.]]></description>
 </item></channel>
 </rss>
