@@ -2,14 +2,19 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://example.com/new_post/</loc><lastmod>2020-08-16T12:51:06&#43;05:30</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://example.com/categories/</loc><lastmod>2020-08-16T12:51:06&#43;05:30</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://example.com/</loc><lastmod>2020-08-16T12:51:06&#43;05:30</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://example.com/categories/personal/</loc><lastmod>2020-08-16T12:51:06&#43;05:30</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://example.com/tags/personal/</loc><lastmod>2020-08-16T12:51:06&#43;05:30</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://example.com/posts/</loc><lastmod>2020-08-16T12:51:06&#43;05:30</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://example.com/tags/</loc><lastmod>2020-08-16T12:51:06&#43;05:30</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://example.com/about/</loc><lastmod>2020-08-16T11:04:49&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://example.com/post_1_dynamo/</loc><lastmod>2020-08-30T15:32:23&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://example.com/new_post/</loc><lastmod>2020-08-16T12:51:06&#43;05:30</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://example.com/tags/aws/</loc><lastmod>2020-08-30T15:32:23&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://example.com/categories/</loc><lastmod>2020-08-30T15:32:23&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://example.com/tags/dynamodb/</loc><lastmod>2020-08-30T15:32:23&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://example.com/</loc><lastmod>2020-08-30T15:32:23&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://example.com/posts/</loc><lastmod>2020-08-30T15:32:23&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://example.com/tags/</loc><lastmod>2020-08-30T15:32:23&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://example.com/categories/tech/</loc><lastmod>2020-08-30T15:32:23&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://example.com/tags/technical-articles/</loc><lastmod>2020-08-30T15:32:23&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://example.com/categories/personal/</loc><lastmod>2020-08-16T12:51:06&#43;05:30</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://example.com/tags/personal/</loc><lastmod>2020-08-16T12:51:06&#43;05:30</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://example.com/about/</loc><lastmod>2020-08-16T11:04:49&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
             <loc>https://example.com/tags/content/_index.fr/</loc><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://example.com/categories/documentation/</loc><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://example.com/tags/installation/_index.zh-cn/</loc><changefreq>weekly</changefreq><priority>0.5</priority></url><url>

@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Bare Minimum approach on using AWS DynamoDB - Faizaan Khan</title><meta name="Description" content="I discuss the bare minimum concepts one needs to start working with DynamoDB, or to select DynamoDB for their application"><meta property="og:title" content="Bare Minimum approach on using AWS DynamoDB" />
+<meta property="og:description" content="I discuss the bare minimum concepts one needs to start working with DynamoDB, or to select DynamoDB for their application" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/post_1_dynamo/" />
+<meta property="og:image" content="https://example.com/post_1_dynamo/Featured.jpg"/>
+<meta property="article:published_time" content="2020-08-30T15:32:23+00:00" />
+<meta property="article:modified_time" content="2020-08-30T15:32:23+00:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://example.com/post_1_dynamo/Featured.jpg"/>
+<meta name="twitter:title" content="Bare Minimum approach on using AWS DynamoDB"/>
+<meta name="twitter:description" content="I discuss the bare minimum concepts one needs to start working with DynamoDB, or to select DynamoDB for their application"/>
+<meta name="application-name" content="Faizaan Khan Blogs">
+<meta name="apple-mobile-web-app-title" content="Faizaan Khan Blogs"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://example.com/post_1_dynamo/" /><link rel="prev" href="https://example.com/new_post/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Bare Minimum approach on using AWS DynamoDB",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/example.com\/post_1_dynamo\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/example.com\/post_1_dynamo\/Featured.jpg",
+                            "width":  6000 ,
+                            "height":  2386 
+                        }],"genre": "posts","keywords": "AWS, Technical Articles, DynamoDB","wordcount":  1791 ,
+        "url": "https:\/\/example.com\/post_1_dynamo\/","datePublished": "2020-08-30T15:32:23+00:00","dateModified": "2020-08-30T15:32:23+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "Faizaan Ahmed Khan","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/example.com\/images\/avatar.png",
+                    "width":  528 ,
+                    "height":  560 
+                }},"author": {
+                "@type": "Person",
+                "name": "Faizaan Ahmed Khan"
+            },"description": "I discuss the bare minimum concepts one needs to start working with DynamoDB, or to select DynamoDB for their application"
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Faizaan Khan">Faizaan Khan</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/categories/personal/"> Personal </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/faizaankhan3" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Faizaan Khan">Faizaan Khan</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/categories/personal/" title="">Personal</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/faizaankhan3" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Bare Minimum approach on using AWS DynamoDB</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="www.faizaankhan.com" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Faizaan Ahmed Khan</a></span>&nbsp;<span class="post-category">included in <a href="/categories/tech/"><i class="far fa-folder fa-fw"></i>Tech</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-08-30">2020-08-30</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1791 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;9 minutes&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/post_1_dynamo/Featured.jpg"
+        data-srcset="/post_1_dynamo/Featured.jpg, /post_1_dynamo/Featured.jpg 1.5x, /post_1_dynamo/Featured.jpg 2x"
+        data-sizes="auto"
+        alt="/post_1_dynamo/Featured.jpg"
+        title="I discuss the bare minimum concepts one needs to start working with DynamoDB, or to select DynamoDB for their application" /></div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#why-this-post-">Why this post ?</a></li>
+    <li><a href="#whats-a-nosql-aka-not-only-sql-database-system-">What&rsquo;s a NoSQL aka Not Only SQL Database System ?</a></li>
+    <li><a href="#some-of-the-common-categories-of-nosql-databases">Some of the common categories of NoSQL databases</a></li>
+    <li><a href="#how-to-select-the-right-db-to-use-">How to select the right DB to use ?</a></li>
+    <li><a href="#are-you-still-unsure-">Are you still unsure ?</a></li>
+    <li><a href="#introducing-the-already-introduced-dynamodb">Introducing the already introduced DynamoDB</a></li>
+    <li><a href="#data-organisation-and-modelling">Data Organisation and Modelling</a>
+      <ul>
+        <li><a href="#primary-keys">Primary Keys</a></li>
+        <li><a href="#data-types-supported-are">Data types supported are:</a></li>
+      </ul>
+    </li>
+    <li><a href="#creating-a-table-in-aws-console">Creating a table in AWS Console</a></li>
+    <li><a href="#how-to-get-started-">How to get started ?</a></li>
+    <li><a href="#last-words-until-the-next-one">Last words until the next one</a>
+      <ul>
+        <li><a href="#references">References</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="why-this-post-">Why this post ?</h2>
+<p>I am working with DynamoDB for some time now and on that journey I have explored about things that I would like to share. I am no master at Dynamo and nor does one needs to be for being able to utilize it&rsquo;s capacity. Here are most of the bare minimum things you need to know before jumping into starting to integrate DynamoDB to your application or before you chose it as a viable option. The post is pretty basic, and you can skip topics if you are well aware of them.</p>
+<h2 id="whats-a-nosql-aka-not-only-sql-database-system-">What&rsquo;s a NoSQL aka Not Only SQL Database System ?</h2>
+<p>A NoSQL database provides you with the flexibility in managing data where you ideally don&rsquo;t need to stick to a predefined
+schema for tabular storage. While NoSQL databases have stayed with us for a long time now, they became a thing in the era
+of cloud, big data, and high volume web and mobile applications.</p>
+<p>NoSQL databases are generally linked to:</p>
+<ul>
+<li>High Scalability</li>
+<li>High Availability</li>
+<li>Big Data Storage Capacity</li>
+<li>Easy Replication</li>
+<li>Fast Performance</li>
+</ul>
+<p>The above points sound so cool, but it&rsquo;s not entirely true for all the NoSQL databases and there are many more variables and architectural choices made which
+provides you with them.</p>
+<p>One mantra for NoSQL which I remind myself whenever I am switching from a relational system is, NoSQL is a denormalized
+system and I must not think of the DB structure in a relational system. Try to flatten the data, and don&rsquo;t worry much if there&rsquo;s
+a few data duplication. Like you don&rsquo;t go ahead and make a table to store schools when a student table is linked with a school.</p>
+<h2 id="some-of-the-common-categories-of-nosql-databases">Some of the common categories of NoSQL databases</h2>
+<ul>
+<li><strong>Key-Value Store</strong>: They are essentially big hash tables of keys and values( Common examples are Dynamo DB and Redis).</li>
+<li><strong>Document-based Store</strong>: The documents are made up of tagged elements(Common examples include MongoDB and CouchDB).</li>
+<li><strong>Column-Based Store</strong>: They have storage blocks and each storage block contains data from only one column(HBase, Cassandra)</li>
+<li><strong>Graph-Based Store</strong>: They are network-based, and uses edges and nodes to store/represent data(SAP Hana, Neo4J)</li>
+</ul>
+<p>I know that&rsquo;s pretty boring stuff when you just read it, so I would advise to go ahead and see some of the data examples, of how they are stored and everything, will be clearer.</p>
+<p>An Example of Data stored in a Key-Value Store:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+  <span class="nt">&#34;CarType&#34;</span><span class="p">:</span> <span class="s2">&#34;Sedan&#34;</span><span class="p">,</span>
+  <span class="nt">&#34;Name&#34;</span><span class="p">:</span> <span class="s2">&#34;Maserati Ghibli&#34;</span><span class="p">,</span>
+  <span class="nt">&#34;Price&#34;</span><span class="p">:</span> <span class="s2">&#34;$10,000&#34;</span>
+  <span class="err">&lt;..other</span> <span class="err">attributes&gt;</span>
+<span class="p">}</span><span class="err">,</span>
+<span class="p">{</span>
+  <span class="nt">&#34;CarType&#34;</span><span class="p">:</span> <span class="s2">&#34;Hatchback&#34;</span><span class="p">,</span>
+  <span class="nt">&#34;Name&#34;</span><span class="p">:</span> <span class="s2">&#34;Volkswagon Polo&#34;</span><span class="p">,</span>
+  <span class="nt">&#34;Price&#34;</span><span class="p">:</span> <span class="s2">&#34;$5,000&#34;</span>
+  <span class="err">&lt;..other</span> <span class="err">attributes&gt;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="how-to-select-the-right-db-to-use-">How to select the right DB to use ?</h2>
+<p>Though we already have a selection of DynamoDB in this post here, it&rsquo;s of great importance that you know what you are using and why. What comes in handy for choosing what you need is the popular CAP theorem by Eric Brewer for distributed systems. Since NoSQL databases are in generally largely distributed systems, people have used it in the selection of their NoSQL DB.</p>
+<p>Coming to the theorem, it states that a networked shared data systems can only guarantee/strongly support two of the following three properties:</p>
+<ul>
+<li><strong>Consistency</strong> — A guarantee that every node in a distributed cluster returns the same, most recent, successful write.</li>
+<li><strong>Availability</strong> — Every non-failing node returns a response for all read and write requests in a reasonable amount of time.</li>
+<li><strong>Partition Tolerant</strong> — The system continues to function and upholds its consistency guarantees in spite of network partitions.</li>
+</ul>
+<p>Here&rsquo;s an image which is a nice depiction of the above 3 properties.</p>
+<p>You can see that, DynamoDB provides us with Availability and Partition Tolerance, but doesn&rsquo;t guarantee Consistency. Although as of 2020 AWS has a strongly consistent and transactional consistent model, where AWS promises data consistency, it&rsquo;s not the best player in that area.</p>
+<p><br /></p>
+<p><figure><a class="lightgallery" href="/post_1_dynamo/cap_theorem.png" title="/post_1_dynamo/cap_theorem.png" data-thumbnail="/post_1_dynamo/cap_theorem.png" data-sub-html="<h2>CAP Theorem (Click to Expand)</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="cap_theorem.png"
+            data-srcset="/post_1_dynamo/cap_theorem.png, cap_theorem.png 1.5x, /post_1_dynamo/cap_theorem.png 2x"
+            data-sizes="auto"
+            alt="/post_1_dynamo/cap_theorem.png" />
+    </a><figcaption class="image-caption">CAP Theorem (Click to Expand)</figcaption>
+    </figure></p>
+<h2 id="are-you-still-unsure-">Are you still unsure ?</h2>
+<p>Here&rsquo;s a list of questions, I copied from AWS documentation 😉
+These are just enough to decide if all the &ldquo;Gyaan&rdquo; above didn&rsquo;t work.</p>
+<ol>
+<li>Can you organize your data in hierarchies or an aggregate structure in one or two tables?</li>
+<li>Are traditional backups impractical because of table update rate or overall data size?</li>
+<li>Does your database workload vary significantly by time or have high-traffic events?</li>
+<li>Does your application or service consistently require response time in the single milliseconds?</li>
+<li>Do you need to provide services in a scalable, replicated configuration?</li>
+<li>Does your application need to store data in the high-terabyte size range?</li>
+<li>Are you willing to invest in a short but possibly steep NoSQL learning curve?</li>
+<li>Is data protection important?</li>
+</ol>
+<p>Those questions are really the marketing ones. But hey, AWS promises you something. I will add another one:</p>
+<ol start="9">
+<li>Are you on AWS cloud services already?
+You can obviously use it from other services like a GCP, but that won&rsquo;t be secure on the go.</li>
+</ol>
+<h2 id="introducing-the-already-introduced-dynamodb">Introducing the already introduced DynamoDB</h2>
+<p>Amazon DynamoDB is a key-value based NoSQL database which is highly scalable, reliable, fully managed and durable database with built-in security, backup and restore, and in-memory caching for internet-scale applications</p>
+<p>By fully managed they mean, you don’t need to worry about the underlying hardware, servers, or operating system.</p>
+<p>Data stored in the DynamoDB is redundantly copied across multiple Availability Zones and thus it protects data loss due to underlying hardware failures by default, which is a big thing.</p>
+<p>In simple terms, you can say that DynamoDB can handle a large amount of data and large traffic without you worrying about the architecture behind, and can be integrated to your application like butter with the AWS ecosystem.</p>
+<p><figure><a class="lightgallery" href="/post_1_dynamo/weather_app.png" title="/post_1_dynamo/weather_app.png" data-thumbnail="/post_1_dynamo/weather_app.png" data-sub-html="<h2>An example usage of DynamoDB in the AWS Ecosystem</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="weather_app.png"
+            data-srcset="/post_1_dynamo/weather_app.png, weather_app.png 1.5x, /post_1_dynamo/weather_app.png 2x"
+            data-sizes="auto"
+            alt="/post_1_dynamo/weather_app.png" />
+    </a><figcaption class="image-caption">An example usage of DynamoDB in the AWS Ecosystem</figcaption>
+    </figure></p>
+<h2 id="data-organisation-and-modelling">Data Organisation and Modelling</h2>
+<p>DynamoDB organizes data as tables, yes tables. Each table contains several items in each row, and each item has keys and values for each column.</p>
+<table>
+<thead>
+<tr>
+<th>UUID (Primary Key)</th>
+<th>StudentName</th>
+<th>MathsScore</th>
+<th>BioScore</th>
+<th>AccountsScore</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1212-3322-5861-9865</td>
+<td>Ram</td>
+<td>59</td>
+<td>98</td>
+<td></td>
+</tr>
+<tr>
+<td>1582-2249-9513-6538</td>
+<td>Shyam</td>
+<td>79</td>
+<td></td>
+<td>89</td>
+</tr>
+</tbody>
+</table>
+<p>In the example above, one item can be represented in JSON data as:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+  <span class="nt">&#34;UUID&#34;</span><span class="p">:</span> <span class="mi">1212-3322-5861-9865</span><span class="p">,</span>
+  <span class="nt">&#34;StudentName&#34;</span><span class="p">:</span> <span class="err">&#39;Ram&#39;</span><span class="p">,</span>
+  <span class="nt">&#34;MathsScore&#34;</span><span class="p">:</span> <span class="mi">59</span><span class="p">,</span>
+  <span class="nt">&#34;BioScore&#34;</span><span class="p">:</span> <span class="mi">98</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>What&rsquo;s different about a DynamoDB table is that you have the freedom to select a
+primary key while keeping all other columns dynamic. So in the above example, you can keeping adding different kinds of scores or any other information.</p>
+<p>You just define the primary key and data can be added with a dynamic set of keys and values.</p>
+<h3 id="primary-keys">Primary Keys</h3>
+<p>When you create a table in DynamoDB, in addition to the table name, you must specify the primary key of the table. The primary key uniquely identifies each item in the table, so that no two items can have the same key.</p>
+<p>A dynamo primary key is either based on a single field or a couple of fields.</p>
+<ul>
+<li>
+<p>Partition key – A simple primary key, composed of one attribute known as the partition key. DynamoDB uses the partition key&rsquo;s value as input to an internal hash function. The output from the hash function determines the partition (physical storage internal to DynamoDB) in which the item will be stored.</p>
+</li>
+<li>
+<p>Partition key and sort key - Referred to as a composite primary key, and as the name suggests it is composed of two attributes. The first attribute is the partition key, and the second attribute is the sort key. All items with the same partition key value are stored together, in sorted order by sort key value.</p>
+</li>
+</ul>
+<p>Let&rsquo;s add a sort key on the previous example:</p>
+<table>
+<thead>
+<tr>
+<th>UUID (Partition Key)</th>
+<th>StudentName (Sort Key)</th>
+<th>MathsScore</th>
+<th>BioScore</th>
+<th>AccountsScore</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1212-3322-5861-9865</td>
+<td>Ram</td>
+<td>59</td>
+<td>98</td>
+<td></td>
+</tr>
+<tr>
+<td>1582-2249-9513-6538</td>
+<td>Shyam</td>
+<td>79</td>
+<td></td>
+<td>89</td>
+</tr>
+</tbody>
+</table>
+<p>When you have a composite primary key, the uniqueness is checked on the pair of
+partition and sort keys, so in the above example we have UUID, but uniqueness is only checked on UUID and StudentName together as a unit, so one can also store another record with the same UUID and a different StudentName.</p>
+<p>The selection of a wise primary key is very important as the DB is indexed on your primary key and provides with a quick result when you try to find by an indexed field. And this selection is one of the places where your most of the thinking should go when you are modeling your data.</p>
+<h3 id="data-types-supported-are">Data types supported are:</h3>
+<ul>
+<li>Scalar Types : Number, String, Binary, Boolean and Null.</li>
+<li>Document Types : List and Map</li>
+<li>Set Types : Number Set, String Set, and Binary Set.</li>
+</ul>
+<p>You don&rsquo;t need to define them while creating any item, it&rsquo;s just for a reference on what data types can be stored.</p>
+<h2 id="creating-a-table-in-aws-console">Creating a table in AWS Console</h2>
+<ol>
+<li>Visit the AWS console page.</li>
+<li>Select DynamoDB from the services menu and click on the create table option.</li>
+<li>You have a small form, asking for the table name and primary key.</li>
+<li>Use the defaut options for now and click on create Table button.
+<ul>
+<li>
+<p>When you are creating a table you can provide partition key and an optional sort key, an important point to note is that these columns can’t be changed.</p>
+</li>
+<li>
+<p>You can update the attributes of any item in dynamo, but can never update a key if you ever want to, what you do is you delete the item and then re-create another one with a different key.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p><figure><a class="lightgallery" href="/post_1_dynamo/dynamo_create_table_view.png" title="/post_1_dynamo/dynamo_create_table_view.png" data-thumbnail="/post_1_dynamo/dynamo_create_table_view.png" data-sub-html="<h2>Creating a table in DynamoDB</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="dynamo_create_table_view.png"
+            data-srcset="/post_1_dynamo/dynamo_create_table_view.png, dynamo_create_table_view.png 1.5x, /post_1_dynamo/dynamo_create_table_view.png 2x"
+            data-sizes="auto"
+            alt="/post_1_dynamo/dynamo_create_table_view.png" />
+    </a><figcaption class="image-caption">Creating a table in DynamoDB</figcaption>
+    </figure></p>
+<ol start="5">
+<li>
+<p>You will see a screen like below
+<figure><a class="lightgallery" href="/post_1_dynamo/dynamo_table_view.png" title="/post_1_dynamo/dynamo_table_view.png" data-thumbnail="/post_1_dynamo/dynamo_table_view.png" data-sub-html="<h2>Existing table view</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="dynamo_table_view.png"
+            data-srcset="/post_1_dynamo/dynamo_table_view.png, dynamo_table_view.png 1.5x, /post_1_dynamo/dynamo_table_view.png 2x"
+            data-sizes="auto"
+            alt="/post_1_dynamo/dynamo_table_view.png" />
+    </a><figcaption class="image-caption">Existing table view</figcaption>
+    </figure></p>
+</li>
+<li>
+<p>Visit the items tab, there&rsquo;s no item there, you will be using AWS API endpoints to fetch,create, update, delete items from your app but for now just go ahead and create your first item by clicking on Create Item 😄</p>
+</li>
+</ol>
+<p><figure><a class="lightgallery" href="/post_1_dynamo/create_record_example.png" title="/post_1_dynamo/create_record_example.png" data-thumbnail="/post_1_dynamo/create_record_example.png" data-sub-html="<h2>Existing table view</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="create_record_example.png"
+            data-srcset="/post_1_dynamo/create_record_example.png, create_record_example.png 1.5x, /post_1_dynamo/create_record_example.png 2x"
+            data-sizes="auto"
+            alt="/post_1_dynamo/create_record_example.png" />
+    </a><figcaption class="image-caption">Existing table view</figcaption>
+    </figure></p>
+<p>You can see how you can add other dynamic sets of keys and add their values on the go.</p>
+<p>Keep exploring the console options and you will get some hold on what it is.</p>
+<h2 id="how-to-get-started-">How to get started ?</h2>
+<p>Checkout AWS SDK for DynamoDB which is supported for several languages, and can be used to interact with DynamoDB API endpoints for basic DB operations seamlessly. You can also read my next post which will be more about the usage part of it.</p>
+<h2 id="last-words-until-the-next-one">Last words until the next one</h2>
+<p>DynamoDB is one of the easiest no-sql databases to start working with, but as you keep exploring you can dive deeper into understanding its capabilities. In a follow-up article, I will be writing about indexes, read and write capacity units, API functions, and I will give a walkthrough on how you can use AWS APIs to create and manage a DyanmoDB table and show some CRUD operations.</p>
+<h3 id="references">References</h3>
+<p>CAP Theorem image credits and source: <a href="https://www.mysoftkey.com/architecture/understanding-of-cap-theorem/">https://www.mysoftkey.com/architecture/understanding-of-cap-theorem/</a></p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2020-08-30</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/post_1_dynamo/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://example.com/post_1_dynamo/" data-title="Bare Minimum approach on using AWS DynamoDB" data-via="https://twitter.com/iamfaizaan_khan" data-hashtags="AWS,Technical Articles,DynamoDB"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://example.com/post_1_dynamo/" data-hashtag="AWS"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://example.com/post_1_dynamo/"><i class="fab fa-linkedin fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/aws/">AWS</a>,&nbsp;<a href="/tags/technical-articles/">Technical Articles</a>,&nbsp;<a href="/tags/dynamodb/">DynamoDB</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/new_post/" class="prev" rel="prev" title="First Ever Blog Post"><i class="fas fa-angle-left fa-fw"></i>First Ever Blog Post</a></div>
+</div>
+<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line"><span class="author" itemprop="copyrightHolder">&nbsp;<a href="www.faizaankhan.com" target="_blank">Faizaan</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><script type="text/javascript" src="https://www-faizaankhan-com.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{},"cookieconsent":{"content":{"dismiss":"Accept","link":"https://marketingplatform.google.com/about/analytics/terms/us/","message":"This website uses cookies for Google Analytics and Disqus"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index.en","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
