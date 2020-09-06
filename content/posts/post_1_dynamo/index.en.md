@@ -5,6 +5,7 @@ date: 2020-08-30T15:32:23+00:00
 lastmod: 2020-08-30T15:32:23+00:00
 draft: false
 author: "Faizaan Ahmed Khan"
+authorLink: "https://faizaankhan.com/about"
 description: "I discuss the bare minimum concepts one needs to start working with DynamoDB, or to select DynamoDB for their application"
 resources:
 - name: "featured-image"
