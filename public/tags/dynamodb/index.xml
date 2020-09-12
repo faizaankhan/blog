@@ -4,7 +4,14 @@
         <link>https://faizaankhan.com/tags/dynamodb/</link>
         <description>DynamoDB - Tag - Faizaan Khan</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>faizaan[dot]khan3@gmail[dot]com (Faizaan)</managingEditor>
-            <webMaster>faizaan[dot]khan3@gmail[dot]com (Faizaan)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 30 Aug 2020 15:32:23 &#43;0000</lastBuildDate><atom:link href="https://faizaankhan.com/tags/dynamodb/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>faizaan[dot]khan3@gmail[dot]com (Faizaan)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 12 Sep 2020 15:32:23 &#43;0000</lastBuildDate><atom:link href="https://faizaankhan.com/tags/dynamodb/" rel="self" type="application/rss+xml" /><item>
+    <title>Basics API functions you need to know to work with DynamoDB on Ruby</title>
+    <link>https://faizaankhan.com/post_2_dynamo/</link>
+    <pubDate>Sat, 12 Sep 2020 15:32:23 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://faizaankhan.com/post_2_dynamo/</guid>
+    <description><![CDATA[Intro Hi, in this blog post I&rsquo;m discussing some of the basic API functions which come in handy to use dynamoDB. These are all well documented on Amazon documentation as well as the library which might use to integrate with AWS, So why this post ? The reason for that is there&rsquo;s a lot of options, and to help you with what you need in the beginning here I list my opinions and my suggested way of doing it.]]></description>
+</item><item>
     <title>Bare minimum approach on learning AWS DynamoDB</title>
     <link>https://faizaankhan.com/post_1_dynamo/</link>
     <pubDate>Sun, 30 Aug 2020 15:32:23 &#43;0000</pubDate>

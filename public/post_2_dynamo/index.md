@@ -1,20 +1,5 @@
----
-weight: 1
-title: "Basics API functions you need to know to work with DynamoDB on Ruby"
-date: 2020-09-12T15:32:23+00:00
-lastmod: 2020-09-12T15:32:23+00:00
-draft: false
-author: "Faizaan Ahmed Khan"
-description: "I discuss some of the basic API functionality of DynamoDB in this post"
-resources:
-- name: "featured-image"
-  src: "Featured.jpeg"
+# Basics API functions you need to know to work with DynamoDB on Ruby
 
-tags: ["AWS", "Technical Articles", "DynamoDB"]
-categories: ["Tech"]
-
-lightgallery: true
----
 
 ## Intro
 Hi, in this blog post I'm discussing some of the basic API functions which come in handy to use dynamoDB.
@@ -279,3 +264,4 @@ In the last section we saw some basic scaffolding for executing simple calls to 
 
 ## End words
 You can start working now, you have enough knowledge about the tools and and it's always the journey where you learn, I hope I was able to stick to the very basics and help you out in understanding them. Adios.
+
