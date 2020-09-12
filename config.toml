@@ -30,7 +30,7 @@ enableEmoji = true
     # default amount of posts in each pages
     paginate = 12
     # [UA-XXXXXXXX-X] google analytics code
-    googleAnalytics = ""
+    googleAnalytics = "UA-177891904-1"
     # copyright description used only for seo schema
     copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License."
     # Menu config
@@ -497,10 +497,10 @@ enableEmoji = true
 
   # Analytics config
   [params.analytics]
-    enable = false
+    enable = true
     # Google Analytics
     [params.analytics.google]
-      id = ""
+      id = "UA-177891904-1"
       # whether to anonymize IP
       anonymizeIP = true
     # Fathom Analytics
@@ -511,7 +511,7 @@ enableEmoji = true
 
   # Cookie consent config
   [params.cookieconsent]
-    enable = true
+    enable = false
     # text strings used for Cookie consent banner
     [params.cookieconsent.content]
       message = "This website uses cookies for Google Analytics and Disqus"
@@ -585,9 +585,12 @@ enableEmoji = true
 # Privacy config (https://gohugo.io/about/hugo-and-gdpr/)
 [privacy]
   # privacy of the Google Analytics (replaced by params.analytics.google)
-  # Google Analytics 相关隐私 (被 params.analytics.google 替代)
+  # Google Analytics
   [privacy.googleAnalytics]
-    # ...
+    anonymizeIP = true
+    disable = false
+    respectDoNotTrack = false
+    useSessionStorage = false
   [privacy.twitter]
     enableDNT = true
   [privacy.youtube]
