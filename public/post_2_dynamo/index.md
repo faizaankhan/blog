@@ -1,4 +1,4 @@
-# Basics API functions you need to know to work with DynamoDB on Ruby
+# Configuring DynamoDB and basic operations for ruby apps
 
 
 ## Intro

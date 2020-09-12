@@ -5,8 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>Basics API functions you need to know to work with DynamoDB on Ruby - Faizaan Khan</title><meta name="Description" content="I discuss some of the basic API functionality of DynamoDB in this post"><meta property="og:title" content="Basics API functions you need to know to work with DynamoDB on Ruby" />
-<meta property="og:description" content="I discuss some of the basic API functionality of DynamoDB in this post" />
+        <title>Configuring DynamoDB and basic operations for ruby apps - Faizaan Khan</title><meta name="Description" content="I show how to configure dynamoDB in dev environment and discuss some of the basic API functionality of DynamoDB in this post"><meta property="og:title" content="Configuring DynamoDB and basic operations for ruby apps" />
+<meta property="og:description" content="I show how to configure dynamoDB in dev environment and discuss some of the basic API functionality of DynamoDB in this post" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://faizaankhan.com/post_2_dynamo/" />
 <meta property="og:image" content="https://faizaankhan.com/post_2_dynamo/Featured.jpeg"/>
@@ -14,8 +14,8 @@
 <meta property="article:modified_time" content="2020-09-12T15:32:23+00:00" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://faizaankhan.com/post_2_dynamo/Featured.jpeg"/>
-<meta name="twitter:title" content="Basics API functions you need to know to work with DynamoDB on Ruby"/>
-<meta name="twitter:description" content="I discuss some of the basic API functionality of DynamoDB in this post"/>
+<meta name="twitter:title" content="Configuring DynamoDB and basic operations for ruby apps"/>
+<meta name="twitter:description" content="I show how to configure dynamoDB in dev environment and discuss some of the basic API functionality of DynamoDB in this post"/>
 <meta name="application-name" content="Faizaan Khan Blogs">
 <meta name="apple-mobile-web-app-title" content="Faizaan Khan Blogs"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -23,7 +23,7 @@
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "Basics API functions you need to know to work with DynamoDB on Ruby",
+        "headline": "Configuring DynamoDB and basic operations for ruby apps",
         "inLanguage": "en",
         "mainEntityOfPage": {
             "@type": "WebPage",
@@ -44,7 +44,7 @@
                 }},"author": {
                 "@type": "Person",
                 "name": "Faizaan Ahmed Khan"
-            },"description": "I discuss some of the basic API functionality of DynamoDB in this post"
+            },"description": "I show how to configure dynamoDB in dev environment and discuss some of the basic API functionality of DynamoDB in this post"
     }
     </script></head>
     <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
@@ -113,7 +113,7 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animated flipInX">Basics API functions you need to know to work with DynamoDB on Ruby</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animated flipInX">Configuring DynamoDB and basic operations for ruby apps</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="www.faizaankhan.com" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Faizaan Ahmed Khan</a></span>&nbsp;<span class="post-category">included in <a href="/categories/tech/"><i class="far fa-folder fa-fw"></i>Tech</a></span></div>
             <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-09-12">2020-09-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;2496 words&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;12 minutes&nbsp;</div>
@@ -124,7 +124,7 @@
         data-srcset="/post_2_dynamo/Featured.jpeg, /post_2_dynamo/Featured.jpeg 1.5x, /post_2_dynamo/Featured.jpeg 2x"
         data-sizes="auto"
         alt="/post_2_dynamo/Featured.jpeg"
-        title="I discuss some of the basic API functionality of DynamoDB in this post" /></div><div class="details toc" id="toc-static"  kept="">
+        title="I show how to configure dynamoDB in dev environment and discuss some of the basic API functionality of DynamoDB in this post" /></div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
                     <span><i class="details-icon fas fa-angle-right"></i></span>
@@ -622,7 +622,7 @@ Here we need to use expressions to make the update call using <a href="https://d
                             <a class="link-to-markdown" href="/post_2_dynamo/index.md" target="_blank">Read Markdown</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://faizaankhan.com/post_2_dynamo/" data-title="Basics API functions you need to know to work with DynamoDB on Ruby" data-via="https://twitter.com/iamfaizaan_khan" data-hashtags="AWS,Technical Articles,DynamoDB"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://faizaankhan.com/post_2_dynamo/" data-hashtag="AWS"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://faizaankhan.com/post_2_dynamo/"><i class="fab fa-linkedin fa-fw"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://faizaankhan.com/post_2_dynamo/" data-title="Configuring DynamoDB and basic operations for ruby apps" data-via="https://twitter.com/iamfaizaan_khan" data-hashtags="AWS,Technical Articles,DynamoDB"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://faizaankhan.com/post_2_dynamo/" data-hashtag="AWS"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://faizaankhan.com/post_2_dynamo/"><i class="fab fa-linkedin fa-fw"></i></a></span>
             </div>
         </div>
     </div>
