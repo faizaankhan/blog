@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Basics API functions you need to know to work with DynamoDB on Ruby - Faizaan Khan</title><meta name="Description" content="I discuss some of the basic API functionality of DynamoDB in this post"><meta property="og:title" content="Basics API functions you need to know to work with DynamoDB on Ruby" />
+<meta property="og:description" content="I discuss some of the basic API functionality of DynamoDB in this post" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://faizaankhan.com/post_2_dynamo/" />
+<meta property="og:image" content="https://faizaankhan.com/post_2_dynamo/Featured.jpeg"/>
+<meta property="article:published_time" content="2020-09-12T15:32:23+00:00" />
+<meta property="article:modified_time" content="2020-09-12T15:32:23+00:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://faizaankhan.com/post_2_dynamo/Featured.jpeg"/>
+<meta name="twitter:title" content="Basics API functions you need to know to work with DynamoDB on Ruby"/>
+<meta name="twitter:description" content="I discuss some of the basic API functionality of DynamoDB in this post"/>
+<meta name="application-name" content="Faizaan Khan Blogs">
+<meta name="apple-mobile-web-app-title" content="Faizaan Khan Blogs"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://faizaankhan.com/post_2_dynamo/" /><link rel="prev" href="https://faizaankhan.com/post_1_dynamo/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Basics API functions you need to know to work with DynamoDB on Ruby",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/faizaankhan.com\/post_2_dynamo\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/faizaankhan.com\/post_2_dynamo\/Featured.jpeg",
+                            "width":  1280 ,
+                            "height":  853 
+                        }],"genre": "posts","keywords": "AWS, Technical Articles, DynamoDB","wordcount":  2496 ,
+        "url": "https:\/\/faizaankhan.com\/post_2_dynamo\/","datePublished": "2020-09-12T15:32:23+00:00","dateModified": "2020-09-12T15:32:23+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "Faizaan Ahmed Khan","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/faizaankhan.com\/images\/avatar.png",
+                    "width":  528 ,
+                    "height":  560 
+                }},"author": {
+                "@type": "Person",
+                "name": "Faizaan Ahmed Khan"
+            },"description": "I discuss some of the basic API functionality of DynamoDB in this post"
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Faizaan Khan">Faizaan Khan</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/categories/personal/"> Personal </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/faizaankhan3" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Faizaan Khan">Faizaan Khan</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/categories/personal/" title="">Personal</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/faizaankhan3" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Basics API functions you need to know to work with DynamoDB on Ruby</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="www.faizaankhan.com" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Faizaan Ahmed Khan</a></span>&nbsp;<span class="post-category">included in <a href="/categories/tech/"><i class="far fa-folder fa-fw"></i>Tech</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-09-12">2020-09-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;2496 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;12 minutes&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/post_2_dynamo/Featured.jpeg"
+        data-srcset="/post_2_dynamo/Featured.jpeg, /post_2_dynamo/Featured.jpeg 1.5x, /post_2_dynamo/Featured.jpeg 2x"
+        data-sizes="auto"
+        alt="/post_2_dynamo/Featured.jpeg"
+        title="I discuss some of the basic API functionality of DynamoDB in this post" /></div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#intro">Intro</a></li>
+    <li><a href="#setting-up-a-local-development-environment">Setting up a local development environment</a></li>
+    <li><a href="#setting-up-gems-and-client-configs-on-any-ruby-application">Setting up gems and client configs on any ruby application</a></li>
+    <li><a href="#working-with-tables-and-records">Working with tables and records</a>
+      <ul>
+        <li><a href="#creating-a-table">Creating a table</a></li>
+        <li><a href="#updating-a-table">Updating a table</a></li>
+        <li><a href="#writing-records-on-the-table">Writing records on the table</a></li>
+        <li><a href="#fetching-records-from-the-table">Fetching records from the table</a></li>
+        <li><a href="#updating-a-record-on-the-table">Updating a record on the table</a></li>
+        <li><a href="#deleting-a-table">Deleting a Table</a></li>
+      </ul>
+    </li>
+    <li><a href="#some-other-apis-to-look-at">Some other APIs to look at</a></li>
+    <li><a href="#secondary-indexes">Secondary Indexes</a></li>
+    <li><a href="#end-words">End words</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="intro">Intro</h2>
+<p>Hi, in this blog post I&rsquo;m discussing some of the basic API functions which come in handy to use dynamoDB.
+These are all well documented on Amazon documentation as well as the library which might use to integrate with AWS, So why
+this post ? The reason for that is there&rsquo;s a lot of options, and to help you with what you need in the beginning here I list my opinions and my suggested way of doing it. Remember working on a DynamoDB is almost a no-brainer when you got your basics clear.
+If you are a beginner and you know nothing about no SQL databases, I have a basic introduction post where I talk about most
+of the if&rsquo;s and but&rsquo;s you need to know and a simple guide on the concepts DynamoDB <a href="https://www.faizaankhan.com/post_1_dynamo/" target="_blank" rel="noopener noreffer">here</a>. Here my choice of language is Ruby, but it&rsquo;s an easy digest for any other as well.</p>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw"></i>Note for rails users<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">For rails users, DynamoDB is not the right choice for ORM in my opinion, but you might have a different one. If you are looking for
+using DynamoDB with your Active Record here&rsquo;s the best you got with this gem called <a href="https://github.com/Dynamoid/dynamoid" target="_blank" rel="noopener noreffer">Dynamoid</a>.
+If that&rsquo;s not what you need Dynamo for this is the right place.</div>
+        </div>
+    </div>
+<h2 id="setting-up-a-local-development-environment">Setting up a local development environment</h2>
+<ol>
+<li>
+<p>Download a locally executable DynamoDB application which you can use for development from <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.DownloadingAndRunning.html" target="_blank" rel="noopener noreffer">aws</a></p>
+</li>
+<li>
+<p>Navigate to the folder and run <code>java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -help</code>, use any option, if you want to.</p>
+</li>
+<li>
+<p>I use the inMemory flag, to not persist data locally and let it run just on memory, and the sharedDB for storing all-region work at one place, good for saving on some system requirements. The flags are well described <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.UsageNotes.html" target="_blank" rel="noopener noreffer">here</a>
+<code>java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb -inMemory</code></p>
+</li>
+<li>
+<p>And Hurray, your local DB server is running.</p>
+</li>
+<li>
+<p>Quickly download awscli if you don&rsquo;t have one. awscli provides you with the superpowers to communicate with AWS from command line :p.</p>
+<ol>
+<li>Linux Users: <code>sudo apt install awscli</code></li>
+<li>Mac Users: <code>brew install awscli</code> (Add Homebrew if you don&rsquo;t have it 🙂</li>
+<li>Alternatively, take some time and read about cli <a href="https://aws.amazon.com/cli/" target="_blank" rel="noopener noreffer">here</a></li>
+</ol>
+</li>
+<li>
+<p>Now that we have aws-cli and dynamoDB client running on the local machine. We can go ahead and run a command. Let&rsquo;s see what all tables exists, we expect the output should be empty. But Before that we need to configure AWS credentials, don&rsquo;t worry we only need fake values for the local system to work.</p>
+</li>
+<li>
+<p>Run <code>aws configure</code></p>
+</li>
+<li>
+<p>Add any fake string as shown in the image below, for access key id and access key secret.</p>
+</li>
+<li>
+<p>Set an AWS region, some examples include, us-west-2, ap-south-1.</p>
+</li>
+<li>
+<p>Set CLI response type to JSON, or whatever your choice is if you read the CLI documentation.</p>
+</li>
+<li>
+<p>We have a local instance set, credentials added for aws-cli, and now we should be able to make a call to our local dynamoDB.
+<code>aws dynamodb list-tables --endpoint-url http://localhost:8000</code></p>
+</li>
+</ol>
+<p><figure><a class="lightgallery" href="/post_2_dynamo/terminal_aws_configure.png" title="/post_2_dynamo/terminal_aws_configure.png" data-thumbnail="/post_2_dynamo/terminal_aws_configure.png" data-sub-html="<h2>aws configure example (Click to Expand)</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="terminal_aws_configure.png"
+            data-srcset="/post_2_dynamo/terminal_aws_configure.png, terminal_aws_configure.png 1.5x, /post_2_dynamo/terminal_aws_configure.png 2x"
+            data-sizes="auto"
+            alt="/post_2_dynamo/terminal_aws_configure.png" />
+    </a><figcaption class="image-caption">aws configure example (Click to Expand)</figcaption>
+    </figure></p>
+<p>That&rsquo;s all for local setup and using API endpoints through CLI. You can update your credentials to real one, and not pass an endpoint URL in a general case, to use the AWS dynamoDB which is on the cloud. If due to some config issue it doesn&rsquo;t fetch data from the table you want, you might need to pass an end-point URL, and for that you can follow the standard scheme for AWS service URLs.</p>
+<p>Aws service URL structure is: <code>protocol://service-code.region-code.amazonaws.com</code>.
+So for a dynamoDB table in us-west-2, we will have the endpoint as <code>https://dynamodb.us-west-2.amazonaws.com</code>.</p>
+<h2 id="setting-up-gems-and-client-configs-on-any-ruby-application">Setting up gems and client configs on any ruby application</h2>
+<p>Here, I will show you how to configure your ruby app to use dynamoDB. Rails users can add specific classes and codes as per their choices in initializers and concerns etc.</p>
+<ol>
+<li>We will use the gem <code>aws-sdk-dynamodb</code>, so create a Gemfile, and add the latest one from RubyGems, and bundle.
+At the time of writing this I&rsquo;m using <code>gem 'aws-sdk-dynamodb', '~&gt; 1.0.0.rc7'</code></li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># In Gemfile</span>
+<span class="n">source</span> <span class="s1">&#39;https://rubygems.org&#39;</span>
+<span class="n">gem</span> <span class="s1">&#39;aws-sdk-dynamodb&#39;</span><span class="p">,</span> <span class="s1">&#39;~&gt; 1.0.0.rc7&#39;</span>
+</code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>Now we will create an AWS dynamoDB client object, such that it can be used to perform the actions.</li>
+<li>In the most basic syntax this is as simple as calling new on Aws::DynamoDB::Client class with a region option passed. And if you are in an environment with a preset AWS config, it is all you need.</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby">  <span class="k">def</span> <span class="nf">client</span>
+    <span class="vi">@client</span> <span class="o">||=</span> <span class="no">Aws</span><span class="o">::</span><span class="no">DynamoDB</span><span class="o">::</span><span class="no">Client</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">region</span><span class="p">:</span> <span class="s2">&#34;us-west-2&#34;</span><span class="p">)</span>
+  <span class="k">end</span>
+</code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>Ok, we can define the aws global configs for this app if required as below, assuming credentials struct is from the environment. And that should be good to go for using client.</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby">  <span class="no">Aws</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+  <span class="ss">access_key_id</span><span class="p">:</span> <span class="n">credentials</span><span class="o">.</span><span class="n">aws</span><span class="o">[</span><span class="ss">:access_key_id</span><span class="o">]</span><span class="p">,</span>
+  <span class="ss">secret_access_key</span><span class="p">:</span> <span class="n">credentials</span><span class="o">.</span><span class="n">aws</span><span class="o">[</span><span class="ss">:secret_access_key</span><span class="o">]</span><span class="p">,</span>
+  <span class="ss">region</span><span class="p">:</span> <span class="n">credentials</span><span class="o">.</span><span class="n">aws</span><span class="o">[</span><span class="ss">:region</span><span class="o">]</span>
+<span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><ol start="3">
+<li>We can also pass, the config key-value pairs to the Aws::DynamoDB::Client class while initializing it, and that will also be good enough.</li>
+<li>Since through this post we will be using local dynamoDB, we only need to pass a region and our local endpoint URL.</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby">    <span class="k">def</span> <span class="nf">client</span>
+      <span class="vi">@client</span> <span class="o">||=</span> <span class="no">Aws</span><span class="o">::</span><span class="no">DynamoDB</span><span class="o">::</span><span class="no">Client</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">region</span><span class="p">:</span> <span class="s1">&#39;us-west-2&#39;</span><span class="p">,</span>
+                                            <span class="ss">endpoint</span><span class="p">:</span> <span class="s1">&#39;http://localhost:8000&#39;</span><span class="p">)</span>
+    <span class="k">end</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>By now, we have added the required gem, and have a client object. This looks like the right time to create a table. So let&rsquo;s go ahead and do that.</p>
+<h2 id="working-with-tables-and-records">Working with tables and records</h2>
+<h3 id="creating-a-table">Creating a table</h3>
+<p>I hope you have been through my <a href="https://www.faizaankhan.com/post_1_dynamo/" target="_blank" rel="noopener noreffer">last post on dynamoDB</a> and you have already created a table using the AWS web console. Here we will be doing the same but from the SDK. In general, you can add these code in a rails task, or a ruby script and run it when you require to setup. Also, many tend to use the web console to create the tables and use them since it&rsquo;s a one-time affair, but it is important for them who are adding it to an application and want to use for different environments etc.</p>
+<p>We will use <a href="https://docs.aws.amazon.com/sdk-for-ruby/v2/api/Aws/DynamoDB/Client.html#create_table-instance_method" target="_blank" rel="noopener noreffer">create_table</a> API endpoint. Here we need to understand a few basic options which we will be sending in params.</p>
+<ul>
+<li>
+<p><strong>table_name</strong>: Table name 🙂</p>
+</li>
+<li>
+<p><strong>key_schema</strong>: Key schema is an array of objects containing information about fields which you want as your <a href="https://www.faizaankhan.com/post_1_dynamo/#primary-keys" target="_blank" rel="noopener noreffer">primary key</a>.</p>
+<ul>
+<li><strong>attribute_name</strong>: It&rsquo;s the field name for which you are setting a primary key attribute</li>
+<li><strong>key_type</strong>: It defines the role of the key attribute set, Hash defines a partition key and range defines a sort key.</li>
+</ul>
+</li>
+<li>
+<p><strong>attribute_definitions</strong>: Here we need to define the data type of the attributes we are setting in key schemas for the table and any indexes which other than our primary index too. The data types for the attributes are:</p>
+<ul>
+<li><strong>S</strong> - the attribute is of type String</li>
+<li><strong>N</strong> - the attribute is of type Number</li>
+<li><strong>B</strong> - the attribute is of type Binary</li>
+</ul>
+</li>
+<li>
+<p><strong>provisioned_throughput</strong>: provisioned throughput is about what kind of capacity you wish to have and will pay for. We don&rsquo;t need to jump into understanding the exact need we have, AWS is tricky here and it&rsquo;s a whole bunch of a subject.
+If you need to understand how the billing works for the provisioned system you can start with <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html" target="_blank" rel="noopener noreffer">this</a>. In very naive terms we can understand this as below:</p>
+<ul>
+<li><strong>RCU</strong>: Read capacity unit represents a read request for an item of 4KB size in 1 second.</li>
+<li><strong>WCU</strong>: Write capacity unit represents a write request for an item of 1KB size in 1 second.</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># main.rb</span>
+<span class="nb">require</span> <span class="s1">&#39;aws-sdk-dynamodb&#39;</span>
+
+<span class="k">def</span> <span class="nf">create_test_table</span>
+  <span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="ss">table_name</span><span class="p">:</span> <span class="s2">&#34;test-dev&#34;</span><span class="p">,</span>
+    <span class="ss">key_schema</span><span class="p">:</span> <span class="o">[</span>
+      <span class="p">{</span>
+        <span class="ss">attribute_name</span><span class="p">:</span> <span class="s2">&#34;id&#34;</span><span class="p">,</span>
+        <span class="ss">key_type</span><span class="p">:</span> <span class="s2">&#34;HASH&#34;</span> <span class="c1"># Partition Key</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="ss">attribute_name</span><span class="p">:</span> <span class="s2">&#34;submitted_at&#34;</span><span class="p">,</span>
+        <span class="ss">key_type</span><span class="p">:</span> <span class="s2">&#34;RANGE&#34;</span> <span class="c1"># Sort Key</span>
+      <span class="p">}</span>
+    <span class="o">]</span><span class="p">,</span>
+    <span class="ss">attribute_definitions</span><span class="p">:</span> <span class="o">[</span>
+      <span class="p">{</span> <span class="ss">attribute_name</span><span class="p">:</span> <span class="s2">&#34;id&#34;</span><span class="p">,</span> <span class="ss">attribute_type</span><span class="p">:</span> <span class="s2">&#34;S&#34;</span> <span class="p">},</span>
+      <span class="p">{</span> <span class="ss">attribute_name</span><span class="p">:</span> <span class="s2">&#34;submitted_at&#34;</span><span class="p">,</span> <span class="ss">attribute_type</span><span class="p">:</span> <span class="s2">&#34;N&#34;</span> <span class="p">}</span>
+    <span class="o">]</span><span class="p">,</span>
+    <span class="ss">provisioned_throughput</span><span class="p">:</span> <span class="p">{</span>
+      <span class="ss">read_capacity_units</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="ss">write_capacity_units</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">create_table</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="s2">&#34;Status: &#34;</span> <span class="o">+</span> <span class="n">result</span><span class="o">.</span><span class="n">table_description</span><span class="o">.</span><span class="n">table_status</span>
+
+<span class="k">rescue</span> <span class="no">Aws</span><span class="o">::</span><span class="no">DynamoDB</span><span class="o">::</span><span class="no">Errors</span><span class="o">::</span><span class="no">ServiceError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+  <span class="nb">puts</span> <span class="s2">&#34;Unable to create table: </span><span class="si">#{</span><span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="si">}</span><span class="se">\n</span><span class="s2">&#34;</span>
+<span class="k">end</span>
+
+<span class="k">def</span> <span class="nf">client</span>
+  <span class="vi">@client</span> <span class="o">||=</span> <span class="no">Aws</span><span class="o">::</span><span class="no">DynamoDB</span><span class="o">::</span><span class="no">Client</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">region</span><span class="p">:</span> <span class="s1">&#39;us-west-2&#39;</span><span class="p">,</span>
+                                        <span class="ss">endpoint</span><span class="p">:</span> <span class="s1">&#39;http://localhost:8000&#39;</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="n">create_test_table</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>After running the above code, you should be able to see your table listed using the call we made earlier.
+<code>aws dynamodb list-tables --endpoint-url http://localhost:8000</code></p>
+<p><figure><a class="lightgallery" href="/post_2_dynamo/terminal_show_created_table.png" title="/post_2_dynamo/terminal_show_created_table.png" data-thumbnail="/post_2_dynamo/terminal_show_created_table.png" data-sub-html="<h2>creating a table example</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="terminal_show_created_table.png"
+            data-srcset="/post_2_dynamo/terminal_show_created_table.png, terminal_show_created_table.png 1.5x, /post_2_dynamo/terminal_show_created_table.png 2x"
+            data-sizes="auto"
+            alt="/post_2_dynamo/terminal_show_created_table.png" />
+    </a><figcaption class="image-caption">creating a table example</figcaption>
+    </figure></p>
+<h3 id="updating-a-table">Updating a table</h3>
+<p>We can not update a table&rsquo;s primary keys, but we can add global indexes with table update calls, update rcu, wcu, and perform other updates like enabling time_to_live. Yes, I am taking this opportunity to tell you something about time to live. Dynamo provides us with an option to set time to live for all the records we create in epoch(a kind of time format). Time to live is a great tool for apps that are storing data on dynamo temporarily. You can set it ttl (time_to_live) to given date time and the record will be deleted by dynamo when the time comes.
+For updates aws provides <a href="https://docs.aws.amazon.com/sdk-for-ruby/v2/api/Aws/DynamoDB/Client.html#update_table-instance_method" target="_blank" rel="noopener noreffer">update_table</a>, which can be used for updating rcu, wcu and adding GSI (global secondary index). Here I will use anothe api method <a href="https://docs.aws.amazon.com/sdk-for-ruby/v2/api/Aws/DynamoDB/Client.html#update_time_to_live-instance_method" target="_blank" rel="noopener noreffer">update_time_to_live</a>.</p>
+<p>Here, I am enabling time to live specification and also setting the attribute name, which will allow us to add a epoch value for the records time to live.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby">  <span class="k">def</span> <span class="nf">update_table</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">update_time_to_live</span><span class="p">(</span>
+      <span class="p">{</span>
+        <span class="ss">table_name</span><span class="p">:</span> <span class="s1">&#39;test-dev&#39;</span><span class="p">,</span>
+        <span class="ss">time_to_live_specification</span><span class="p">:</span> <span class="p">{</span>
+          <span class="ss">enabled</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span>
+          <span class="ss">attribute_name</span><span class="p">:</span> <span class="s2">&#34;ttl&#34;</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">time_to_live_specification</span><span class="o">.</span><span class="n">enabled</span>
+      <span class="nb">puts</span> <span class="s2">&#34;TTL enabled&#34;</span>
+    <span class="k">end</span>
+  <span class="k">rescue</span> <span class="no">Aws</span><span class="o">::</span><span class="no">DynamoDB</span><span class="o">::</span><span class="no">Errors</span><span class="o">::</span><span class="no">ServiceError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+    <span class="nb">puts</span> <span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">to_s</span>
+  <span class="k">end</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="writing-records-on-the-table">Writing records on the table</h3>
+<p>Writing records on the table is yet another simple task, you can use the below code and pass your record to add. What we are doing below is, we are calling <code>put_item</code> method with item and table name. Item consists of an object which can be multiple levels nested or flat, but must have the primary key attributes defined. As you already know, we can try new attributes on the fly and we only need to stick with the primary key attributes, others are all dynamically created.</p>
+<p><a href="https://docs.aws.amazon.com/sdk-for-ruby/v2/api/Aws/DynamoDB/Client.html#put_item-instance_method" target="_blank" rel="noopener noreffer">put_item</a> will add an item or replace the item if there&rsquo;s a primary key conflict.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby">  <span class="k">def</span> <span class="nf">create_record</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+    <span class="n">client</span><span class="o">.</span><span class="n">put_item</span><span class="p">(</span>
+      <span class="ss">table_name</span><span class="p">:</span> <span class="s1">&#39;test-dev&#39;</span><span class="p">,</span>
+      <span class="ss">return_consumed_capacity</span><span class="p">:</span> <span class="s2">&#34;TOTAL&#34;</span><span class="p">,</span>
+      <span class="ss">item</span><span class="p">:</span> <span class="n">item</span>
+    <span class="p">)</span>
+  <span class="k">rescue</span> <span class="no">Aws</span><span class="o">::</span><span class="no">DynamoDB</span><span class="o">::</span><span class="no">Errors</span><span class="o">::</span><span class="no">ServiceError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+    <span class="nb">puts</span> <span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">to_s</span>
+  <span class="k">end</span>
+
+  <span class="n">create_record</span><span class="p">({</span>
+    <span class="nb">id</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+    <span class="ss">submitted_at</span><span class="p">:</span> <span class="mi">12</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">2020</span><span class="p">,</span>
+    <span class="nb">name</span><span class="p">:</span> <span class="s1">&#39;John Doe&#39;</span><span class="p">,</span>
+    <span class="ss">degree</span><span class="p">:</span> <span class="s1">&#39;BE&#39;</span>
+  <span class="p">})</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="fetching-records-from-the-table">Fetching records from the table</h3>
+<p>We can fetch a record by calling <code>get_item</code>, and we need to pass the primary key attributes (Both partition and sort key if both are created, or just partition key if there&rsquo;s only one primary key attribute).
+Let&rsquo;s use the <a href="https://docs.aws.amazon.com/sdk-for-ruby/v2/api/Aws/DynamoDB/Client.html#get_item-instance_method" target="_blank" rel="noopener noreffer">get_item</a> method and fetch the data we created just now.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby">  <span class="k">def</span> <span class="nf">fetch_record</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_item</span><span class="p">(</span><span class="ss">table_name</span><span class="p">:</span> <span class="s1">&#39;test-dev&#39;</span><span class="p">,</span> <span class="ss">key</span><span class="p">:</span> <span class="n">key</span><span class="p">)</span>
+    <span class="n">response</span><span class="o">.</span><span class="n">item</span>
+  <span class="k">rescue</span> <span class="no">Aws</span><span class="o">::</span><span class="no">DynamoDB</span><span class="o">::</span><span class="no">Errors</span><span class="o">::</span><span class="no">ServiceError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+    <span class="nb">puts</span> <span class="n">e</span><span class="o">.</span><span class="n">message</span>
+  <span class="k">end</span>
+
+  <span class="n">fetch_record</span><span class="p">({</span> <span class="nb">id</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="ss">submitted_at</span><span class="p">:</span> <span class="mi">12</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">2020</span><span class="p">})</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="updating-a-record-on-the-table">Updating a record on the table</h3>
+<p>We can use <code>put_item</code> and replace the entire record, or we can also just update a non-primary key attribute.
+Here we need to use expressions to make the update call using <a href="https://docs.aws.amazon.com/sdk-for-ruby/v2/api/Aws/DynamoDB/Client.html#update_item-instance_method" target="_blank" rel="noopener noreffer">update_item</a>. DynamoDB provides us with some expressions like an SQL syntax we use, one of which is used here and is <code>set field = :the_variable_which_we_will_use_in_expression_attr_values</code>. In <code>update_expression</code> we are passing a string that resembles a query to let dynamo identify a field with a specific name, which we will use in the <code>expression_attribute_values</code> to set a value. In <code>return_values</code> option we are setting UPDATED_NEW to get back the updated data.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby">  <span class="k">def</span> <span class="nf">update_record</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">new_value</span><span class="p">)</span>
+    <span class="n">client</span><span class="o">.</span><span class="n">update_item</span><span class="p">({</span>
+                         <span class="ss">table_name</span><span class="p">:</span> <span class="s1">&#39;test-dev&#39;</span><span class="p">,</span>
+                         <span class="ss">key</span><span class="p">:</span> <span class="n">key</span><span class="p">,</span>
+                         <span class="ss">update_expression</span><span class="p">:</span> <span class="s2">&#34;set </span><span class="si">#{</span><span class="n">field</span><span class="si">}</span><span class="s2"> = :field&#34;</span><span class="p">,</span>
+                         <span class="ss">expression_attribute_values</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;:field&#39;</span> <span class="o">=&gt;</span> <span class="n">new_value</span> <span class="p">},</span>
+                         <span class="ss">return_values</span><span class="p">:</span> <span class="s1">&#39;UPDATED_NEW&#39;</span>
+                       <span class="p">})</span>
+  <span class="k">rescue</span> <span class="no">Aws</span><span class="o">::</span><span class="no">DynamoDB</span><span class="o">::</span><span class="no">Errors</span><span class="o">::</span><span class="no">ServiceError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+    <span class="nb">puts</span> <span class="n">e</span><span class="o">.</span><span class="n">message</span>
+  <span class="k">end</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="deleting-a-table">Deleting a Table</h3>
+<p>Just to finish-up. Delete is as simple as expected.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby">  <span class="k">def</span> <span class="nf">delete_table</span>
+    <span class="n">client</span><span class="o">.</span><span class="n">delete_table</span><span class="p">({</span> <span class="ss">table_name</span><span class="p">:</span> <span class="s1">&#39;test-dev&#39;</span> <span class="p">})</span>
+    <span class="nb">puts</span> <span class="s2">&#34;Table deletion process started, aws will delete it soon&#34;</span>
+  <span class="k">rescue</span> <span class="no">Aws</span><span class="o">::</span><span class="no">DynamoDB</span><span class="o">::</span><span class="no">Errors</span><span class="o">::</span><span class="no">ServiceError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+    <span class="nb">puts</span> <span class="s2">&#34;Unable to delete table: </span><span class="si">#{</span><span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="si">}</span><span class="se">\n</span><span class="s2">&#34;</span>
+  <span class="k">end</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="some-other-apis-to-look-at">Some other APIs to look at</h2>
+<p>In the last section we saw some basic scaffolding for executing simple calls to dynamoDB. It can be of good use, and other than that we also have few other important APIs to look at. I will just describe them, and you can have a brief understanding of them, such that you know what to use, when you need it.</p>
+<ul>
+<li><strong>Batch APIs</strong>
+<ul>
+<li><strong>BatchGetItem</strong>: It can be used to fetch items from different tables using Partition Key and Sort Key. In a single BatchGetItem call, we can fetch up to 16MB data or 100 items.</li>
+<li><strong>BatchWriteItem</strong>: It can be used to delete or put items on one or more tables in DynamoDB in one call. We can write up to 16 MB data, which can be 25 put and delete requests.</li>
+</ul>
+</li>
+<li><strong>Query and Pagination APIs</strong>
+<ul>
+<li><strong>Query</strong>: Query operation will return all items that are matched with the partition key of the table. Sort Key is further useful to filter and sort items but it is optional.</li>
+<li><strong>Scan</strong>: Scan operation doesn’t require Partition Key or Sort Key to fetch results from the table. As the name suggests, it scans an entire table to filter results based on attribute values passed as filters.</li>
+<li><strong>Pagination</strong>: DynamoDB Query/Scan results return a maximum of 1MB response size so if our request matches an item of size more than 1MB, it gets automatically divided into pages. In such cases DynamoDB returns a special response parameter “LastEvaluatedKey” and this can be used to fetch next page results. Please note we need to pass the value of “LastEvaluatedKey” as “ExclusiveStartKey” in the next request to DynamoDB.</li>
+</ul>
+</li>
+</ul>
+<h2 id="secondary-indexes">Secondary Indexes</h2>
+<p>DynamoDB is very bad with fetching data when you are not using a key to get the data, and instead doing a scan operation. It was not meant to do that ever, if you need search capabilities elastic search is your goto option. We can query on primary indexes and can get data, but when we know that we will be needing some other attributes pairs too for some data fetching we can go ahead, and add them as indexes. Dynamo provides us with two types of secondary indexes.</p>
+<ul>
+<li><strong>Global secondary index</strong> – An index with a partition key and sort key that can be different from those on the table. They are stored detached from the main table with their own partition.</li>
+<li><strong>Local secondary index</strong> – An index that has the same partition key as the table, but a different sort key. They are stored with the table, in the same partition as the data it is referencing to.</li>
+</ul>
+<h2 id="end-words">End words</h2>
+<p>You can start working now, you have enough knowledge about the tools and and it&rsquo;s always the journey where you learn, I hope I was able to stick to the very basics and help you out in understanding them. Adios.</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2020-09-12</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/post_2_dynamo/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://faizaankhan.com/post_2_dynamo/" data-title="Basics API functions you need to know to work with DynamoDB on Ruby" data-via="https://twitter.com/iamfaizaan_khan" data-hashtags="AWS,Technical Articles,DynamoDB"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://faizaankhan.com/post_2_dynamo/" data-hashtag="AWS"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://faizaankhan.com/post_2_dynamo/"><i class="fab fa-linkedin fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/aws/">AWS</a>,&nbsp;<a href="/tags/technical-articles/">Technical Articles</a>,&nbsp;<a href="/tags/dynamodb/">DynamoDB</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/post_1_dynamo/" class="prev" rel="prev" title="Bare minimum approach on learning AWS DynamoDB"><i class="fas fa-angle-left fa-fw"></i>Bare minimum approach on learning AWS DynamoDB</a></div>
+</div>
+<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line"><span class="author" itemprop="copyrightHolder">&nbsp;<a href="www.faizaankhan.com" target="_blank">Faizaan</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><script type="text/javascript" src="https://www-faizaankhan-com.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{},"cookieconsent":{"content":{"dismiss":"Accept","link":"https://marketingplatform.google.com/about/analytics/terms/us/","message":"This website uses cookies for Google Analytics and Disqus"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index.en","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
