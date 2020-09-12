@@ -1,11 +1,11 @@
 ---
 weight: 1
-title: "Basics API functions you need to know to work with DynamoDB on Ruby"
+title: "Configuring DynamoDB and basic operations for ruby apps"
 date: 2020-09-12T15:32:23+00:00
 lastmod: 2020-09-12T15:32:23+00:00
 draft: false
 author: "Faizaan Ahmed Khan"
-description: "I discuss some of the basic API functionality of DynamoDB in this post"
+description: "I show how to configure dynamoDB in dev environment and discuss some of the basic API functionality of DynamoDB in this post"
 resources:
 - name: "featured-image"
   src: "Featured.jpeg"
