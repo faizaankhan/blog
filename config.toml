@@ -156,9 +156,9 @@ enableEmoji = true
       [languages.en.params.social]
         GitHub = "https://github.com/faizaankhan"
         Linkedin = "https://www.linkedin.com/in/khanfaizaan"
-        Twitter = "https://twitter.com/iamfaizaan_khan"
-        Instagram = "https://www.instagram.com/just_faizaan/"
-        Gitlab = "https://gitlab.com/faizaan.khan3"
+        # Twitter = "https://twitter.com/iamfaizaan_khan"
+        # Instagram = "https://www.instagram.com/just_faizaan/"
+        # Gitlab = "https://gitlab.com/faizaan.khan3"
         Stackoverflow = "https://stackoverflow.com/users/6050091/faizaan-khan"
         Email = "faizaan.khan3@gmail.com"
         # Facebook = "xxxx"
