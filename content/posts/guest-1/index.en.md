@@ -1,17 +1,17 @@
 ---
 weight: 1
-title: "Web Scrapping"
+title: "Web Scraping"
 date: 2020-10-01T15:32:23+00:00
 lastmod: 2020-10-01T15:32:23+00:00
 draft: false
 author: "Shayan Ahmed Khan"
 authorLink: "https://www.linkedin.com/in/shayan-ahmed-504a52169/"
-description: "Shayan writes about his experience with Web Scrapping he had recently"
+description: "Shayan writes about his experience with Web Scraping he had recently"
 resources:
   - name: "featured-image"
     src: "Featured.jpg"
 
-tags: ["Python", "Technical Articles", "Web Scrapping"]
+tags: ["Python", "Technical Articles", "Web Scraping"]
 categories: ["Tech"]
 
 lightgallery: true
@@ -23,7 +23,7 @@ In this post, I will be using python, it's a diverse programming language and wh
 
 ### Hang on with me for 15 mins and scrape your first website today.
 
-### The Basics of web scrapping
+### The Basics of web scraping
 
 **The crawler**
 
@@ -44,7 +44,7 @@ A web scraper is a specialized tool designed to accurately and quickly extract d
 
 ### OK!!! Let's start
 - **Step 1**: Import the required libraries we need
-  - BeautifulSoup from bs4 (It's a simple library that makes your scrapping easy)
+  - BeautifulSoup from bs4 (It's a simple library that makes your scraping easy)
   - Request and urlopen from urllib
 
   ```

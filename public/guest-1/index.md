@@ -1,4 +1,4 @@
-# Web Scrapping
+# Web Scraping
 
 
 Did you know that web scraping is integral to the data analysis process? It is because it allows quick and efficient extraction of data from different sources, which can then be processed to glean insights as required. Data Analysis is a huge market today, for some of the software giants it's the source of every decision making, even for small businesses, they get to keep track of the brand value and reputation of their company. You never know when a small automation script to dig in data from various sources might find someplace in engineering life or workspace :smile: (ignore the emoticon, just trying to get your attention).
@@ -7,7 +7,7 @@ In this post, I will be using python, it's a diverse programming language and wh
 
 ### Hang on with me for 15 mins and scrape your first website today.
 
-### The Basics of web scrapping
+### The Basics of web scraping
 
 **The crawler**
 
@@ -28,7 +28,7 @@ A web scraper is a specialized tool designed to accurately and quickly extract d
 
 ### OK!!! Let's start
 - **Step 1**: Import the required libraries we need
-  - BeautifulSoup from bs4 (It's a simple library that makes your scrapping easy)
+  - BeautifulSoup from bs4 (It's a simple library that makes your scraping easy)
   - Request and urlopen from urllib
 
   ```

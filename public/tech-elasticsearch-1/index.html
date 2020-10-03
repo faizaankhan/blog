@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Getting familiar with Elasticsearch - Faizaan Khan</title><meta name="Description" content="In this post I intend to provide the readers with basic concepts they need to start working with elasticsearch, and then carve their way to understanding it deeply themselves while using it"><meta property="og:title" content="Getting familiar with Elasticsearch" />
+<meta property="og:description" content="In this post I intend to provide the readers with basic concepts they need to start working with elasticsearch, and then carve their way to understanding it deeply themselves while using it" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://faizaankhan.com/tech-elasticsearch-1/" />
+<meta property="og:image" content="https://faizaankhan.com/tech-elasticsearch-1/Featured.jpg"/>
+<meta property="article:published_time" content="2020-10-02T15:32:23+00:00" />
+<meta property="article:modified_time" content="2020-10-02T15:32:23+00:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://faizaankhan.com/tech-elasticsearch-1/Featured.jpg"/>
+<meta name="twitter:title" content="Getting familiar with Elasticsearch"/>
+<meta name="twitter:description" content="In this post I intend to provide the readers with basic concepts they need to start working with elasticsearch, and then carve their way to understanding it deeply themselves while using it"/>
+<meta name="application-name" content="Faizaan Khan Blogs">
+<meta name="apple-mobile-web-app-title" content="Faizaan Khan Blogs"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://faizaankhan.com/tech-elasticsearch-1/" /><link rel="prev" href="https://faizaankhan.com/guest-1/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Getting familiar with Elasticsearch",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/faizaankhan.com\/tech-elasticsearch-1\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/faizaankhan.com\/tech-elasticsearch-1\/Featured.jpg",
+                            "width":  5954 ,
+                            "height":  2284 
+                        }],"genre": "posts","keywords": "Technical Articles, Elasticsearch","wordcount":  2330 ,
+        "url": "https:\/\/faizaankhan.com\/tech-elasticsearch-1\/","datePublished": "2020-10-02T15:32:23+00:00","dateModified": "2020-10-02T15:32:23+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "Faizaan Ahmed Khan","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/faizaankhan.com\/images\/avatar.png",
+                    "width":  528 ,
+                    "height":  560 
+                }},"author": {
+                "@type": "Person",
+                "name": "Faizaan Ahmed Khan"
+            },"description": "In this post I intend to provide the readers with basic concepts they need to start working with elasticsearch, and then carve their way to understanding it deeply themselves while using it"
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Faizaan Khan">Faizaan Khan</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/categories/personal/"> Personal </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/faizaankhan3" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Faizaan Khan">Faizaan Khan</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/categories/personal/" title="">Personal</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/faizaankhan3" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Getting familiar with Elasticsearch</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="www.faizaankhan.com" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Faizaan Ahmed Khan</a></span>&nbsp;<span class="post-category">included in <a href="/categories/tech/"><i class="far fa-folder fa-fw"></i>Tech</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-10-02">2020-10-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;2330 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;11 minutes&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/tech-elasticsearch-1/Featured.jpg"
+        data-srcset="/tech-elasticsearch-1/Featured.jpg, /tech-elasticsearch-1/Featured.jpg 1.5x, /tech-elasticsearch-1/Featured.jpg 2x"
+        data-sizes="auto"
+        alt="/tech-elasticsearch-1/Featured.jpg"
+        title="In this post I intend to provide the readers with basic concepts they need to start working with elasticsearch, and then carve their way to understanding it deeply themselves while using it" /></div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#intro">Intro</a></li>
+    <li><a href="#what-is-a-document-store">What is a Document Store?</a></li>
+    <li><a href="#lucene">Lucene</a></li>
+    <li><a href="#inverted-index-and-forward-index">Inverted Index and Forward Index</a></li>
+    <li><a href="#elasticsearch">Elasticsearch</a>
+      <ul>
+        <li><a href="#1-cluster">1. Cluster:</a></li>
+        <li><a href="#2-node">2. Node:</a></li>
+        <li><a href="#3-document">3. Document:</a></li>
+        <li><a href="#4-index">4. Index:</a></li>
+        <li><a href="#5-mapping">5. Mapping:</a></li>
+        <li><a href="#6-shard">6. Shard:</a></li>
+      </ul>
+    </li>
+    <li><a href="#basic-api-requests">Basic API requests</a>
+      <ul>
+        <li><a href="#creating-an-index">Creating an Index</a></li>
+        <li><a href="#creating-an-index-with-a-mapping">Creating an Index with a mapping:</a></li>
+        <li><a href="#indexing-a-document--adding-a-document-to-the-index">Indexing a Document / Adding a document to the Index</a></li>
+        <li><a href="#searching-our-document">Searching our document</a></li>
+      </ul>
+    </li>
+    <li><a href="#final-words">Final Words</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="intro">Intro</h2>
+<p>Search has become such an extended part of our daily life. Before starting to write this post, I just searched for my fav indie artist Prateek Kuhad on Spotify, plugged in my headphones and here I am making keystrokes with the flow of Dil Beparwah 🙂. With a happy mood what I would like to convey is if you are building a web app, you gotta have the search features. So without boring you more let me dive into what this post is about.</p>
+<p>If you have a dynamic web app with a good amount of data size which you are looking at handling, and you are planning at adding features for just search or even more with filters, sorts, analytics, having a dedicated search service solves your problem to a great amount. Your databases won&rsquo;t be busy with all the search kind of requests, and you will also provide your users with a huge difference in search result time. A dedicated search engine for an application in the present-day is much of a necessity for most use cases with a large user base or data.</p>
+<p>In this post I will take you through the base of elasticsearch and leave you at how we can use it, after that the Journey is all yours 🙂.</p>
+<h2 id="what-is-a-document-store">What is a Document Store?</h2>
+<p>You must have heard of Document data models at some point of time, or in the DynamoDB post where I talked about NoSql databases a bit. Document data models are non-relational and non-normalized flat datastore where you store your data in the form of keys and values in JSON, XML, YAML and alike formats.</p>
+<p>Document store points to a semi-structured data storage solution where we store document data.
+And a distributed document store is the one which has document stores across nodes in a cluster.
+(if you are unfamiliar with the words nodes and cluster, just understand it like a node is a machine in a network with a lot of machines which is called a cluster)</p>
+<p><figure><a class="lightgallery" href="/tech-elasticsearch-1/document_store.png" title="/tech-elasticsearch-1/document_store.png" data-thumbnail="/tech-elasticsearch-1/document_store.png" data-sub-html="<h2>Distributed Document Store Sketch</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="document_store.png"
+            data-srcset="/tech-elasticsearch-1/document_store.png, document_store.png 1.5x, /tech-elasticsearch-1/document_store.png 2x"
+            data-sizes="auto"
+            alt="/tech-elasticsearch-1/document_store.png" />
+    </a><figcaption class="image-caption">Distributed Document Store Sketch</figcaption>
+    </figure></p>
+<br/>
+<h2 id="lucene">Lucene</h2>
+<p>Elasticsearch is built on top of Lucene, thus let us take a moment describing what it is.
+Lucene is a powerful, built-for-purpose full-text search library. A full-text search is a technique for search engines where they allow us to search textual content in a document.</p>
+<p>Lucene takes a raw stream of characters, bundles them into <strong>tokens</strong>, and persists them as <strong>terms</strong> in an index(assume index as a table of contents, we will come to it very soon). It can quickly query that index and provide the ordered results.</p>
+<p>By using Lucene directly in our applications, or as part of a server, we can perform full-text searches in real-time over gigabytes of content. We also get custom analysis and scoring techniques, using which we can improve the relevance of results.</p>
+<ul>
+<li><strong>Tokens</strong>: Data parsing in Lucene extracts out individual units like words from a raw stream of characters and stores them in indexes, these individual units are called tokens. They are occurrences of these words/units.</li>
+<li><strong>Terms</strong>: Stored tokens are called terms, and they are unit of search, it consists of the text as a string and the field in the document where it was found.</li>
+</ul>
+<p>You can think of this all by thinking of yourself as Lucene, and assume you receive a lot of data from your input senses, one of your senses is the vision, and you are having a constant stream of data received in your mind. While you are moving across your house, and focussing on what&rsquo;s kept at what place, you are processing these data streams, and creating an index of where the phone is, where the spoons are, and where the comb is. Now when you require one of them like the comb, your brain quickly looks up at this index, and lets you know that comb is in your dressing table.</p>
+<p>Tokens and terms are simple but really good to understand.</p>
+<h2 id="inverted-index-and-forward-index">Inverted Index and Forward Index</h2>
+<p>An index is like an address book, instead of telling here a person is, it tells you where a data is, and thus helps you to fetch that data quickly. So one can efficiently retrieve records using indexes.</p>
+<br/>
+Inverted Index is a data structure that stores a mapping from words to their documents. Slow Indexing but Fast Search.
+<table>
+<thead>
+<tr>
+<th>Words</th>
+<th>Chapters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hello</td>
+<td>Chapter 1</td>
+</tr>
+<tr>
+<td>Coffee</td>
+<td>Chapter 2, Chapter 3</td>
+</tr>
+<tr>
+<td>Greetings</td>
+<td>Chapter 1</td>
+</tr>
+</tbody>
+</table>
+<br/>
+Forward index is a data structure that stores mapping from documents to words. Fast indexing but slow search.
+<table>
+<thead>
+<tr>
+<th>Chapters</th>
+<th>Words</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chapter 1</td>
+<td>Hello, mello, kello</td>
+</tr>
+<tr>
+<td>Chapter 2</td>
+<td>Tea, Coffee, Biscuits</td>
+</tr>
+<tr>
+<td>Chapter 3</td>
+<td>Apple, Banana, Coffee</td>
+</tr>
+</tbody>
+</table>
+<p>You can take a moment to see the index tables and think what should have been a better choice for the elasticsearch developers.</p>
+<h2 id="elasticsearch">Elasticsearch</h2>
+<p>Elasticsearch is a Lucene based distributed search and analytics engine.</p>
+<ul>
+<li>Free and open-source distributed inverted index</li>
+<li>Build on top of Apache Lucene</li>
+<li>Cross-platform</li>
+<li>Near real-time</li>
+<li>Indexed data can respond to complex search queries, filters and aggregations</li>
+<li>Is document-based</li>
+<li>Is scalable</li>
+<li>Data in JSON format</li>
+<li>Pluggable API endpoint</li>
+</ul>
+<h3 id="1-cluster">1. Cluster:</h3>
+<p>An elasticsearch cluster in general consists of loosely or tightly connected nodes, which together works as one unit. Cluster virtually describes the set of nodes running on it, and it&rsquo;s the most high-level entity, which can be configured.</p>
+<h3 id="2-node">2. Node:</h3>
+<p>A node is a running instance of elasticsearch which belongs to a cluster.</p>
+<h3 id="3-document">3. Document:</h3>
+<p>The document is a non-relational data storage format.</p>
+<h3 id="4-index">4. Index:</h3>
+<p>An index is a logical namespace, it’s like a ‘database’ we use an RDBMS. It has a mapping definition provided at creation time which defines multiple types of data that can be stored in it. They mappings provide all information about the keys of the documents and the expected types for its value.</p>
+<h3 id="5-mapping">5. Mapping:</h3>
+<p>A mapping is like a ‘schema definition’ we do in RDBMS. Each index has a mapping, which defines each field data type within the index, plus several index-wide settings. A mapping can either be defined explicitly, or it will be generated automatically when a document is indexed.</p>
+<h3 id="6-shard">6. Shard:</h3>
+<p>At times when an index can’t just be stored in a single node due to hardware challenges, we split it into x set of documents which is called sharding, and the split-up data is called a shard. A shard is an unbreakable entity in Elasticsearch, in the sense that a shard can only stay on one machine (Node). An index which is a group of shards can spread across multiple machines(ES nodes) but shards can not.</p>
+<p><figure><a class="lightgallery" href="/tech-elasticsearch-1/document_storage_system.png" title="/tech-elasticsearch-1/document_storage_system.png" data-thumbnail="/tech-elasticsearch-1/document_storage_system.png" data-sub-html="<h2>Distributed Document Store, Notice that a document can&#39;t be further broken down to store it in multiple shards.</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="document_storage_system.png"
+            data-srcset="/tech-elasticsearch-1/document_storage_system.png, document_storage_system.png 1.5x, /tech-elasticsearch-1/document_storage_system.png 2x"
+            data-sizes="auto"
+            alt="/tech-elasticsearch-1/document_storage_system.png" />
+    </a><figcaption class="image-caption">Distributed Document Store, Notice that a document can't be further broken down to store it in multiple shards.</figcaption>
+    </figure>
+<br/></p>
+<h2 id="basic-api-requests">Basic API requests</h2>
+<p>Elasticsearch by default runs on 9200 port.
+So after <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html" target="_blank" rel="noopener noreffer">installation</a>, and starting your elasticsearch service, you can run a curl command on your localhost 9200 where Elasticsearch returns it&rsquo;s running cluster details.</p>
+<p><code>curl http://localhost:9200/?pretty</code></p>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw"></i>cURL:<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">cURL is a command-line tool to transfer data to or from a server. We use it here to make requests to the Elasticsearch server.</div>
+        </div>
+    </div>
+<p>This will give you an output like below, mentioning version and other details. Getting an output here means you have an up and running elasticsearch cluster. And we are good to go.
+<figure><a class="lightgallery" href="/tech-elasticsearch-1/es_running.png" title="/tech-elasticsearch-1/es_running.png" data-thumbnail="/tech-elasticsearch-1/es_running.png" data-sub-html="<h2>Shows if elasticsearch is up and running</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="es_running.png"
+            data-srcset="/tech-elasticsearch-1/es_running.png, es_running.png 1.5x, /tech-elasticsearch-1/es_running.png 2x"
+            data-sizes="auto"
+            alt="/tech-elasticsearch-1/es_running.png" />
+    </a><figcaption class="image-caption">Shows if elasticsearch is up and running</figcaption>
+    </figure></p>
+<h3 id="creating-an-index">Creating an Index</h3>
+<p>As, I said index is like a database, and we can have multiple indices in a cluster. So for storing some data we first need to add an index. An Index should be generally created for a document which is a flat data representation for a set of values, like Employee Index, Users Index, Posts Index. We first plan for what features we require, and as per that we broadly think of what indices we need. As per the data size, we decide whether 2 indices can be merged, to provide us with a more flat structure or whether an index can be broken into different indices if the use cases are as such that they have a separate concern.</p>
+<p>For creating an index you can send a put request to elasticsearch, with the index_name(example-index here) in the URL which you would like to create.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">curl -X PUT &#34;localhost:9200/example-index&#34;
+</code></pre></td></tr></table>
+</div>
+</div><p>To view all the indices we can do a simple get request as</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">curl -X GET &#34;localhost:9200/_cat/indices?v&#34;
+</code></pre></td></tr></table>
+</div>
+</div><p><figure><a class="lightgallery" href="/tech-elasticsearch-1/creating_index.png" title="/tech-elasticsearch-1/creating_index.png" data-thumbnail="/tech-elasticsearch-1/creating_index.png" data-sub-html="<h2>Creating an index</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="creating_index.png"
+            data-srcset="/tech-elasticsearch-1/creating_index.png, creating_index.png 1.5x, /tech-elasticsearch-1/creating_index.png 2x"
+            data-sizes="auto"
+            alt="/tech-elasticsearch-1/creating_index.png" />
+    </a><figcaption class="image-caption">Creating an index</figcaption>
+    </figure></p>
+<br/>
+<h3 id="creating-an-index-with-a-mapping">Creating an Index with a mapping:</h3>
+<p>Mapping can be auto-assigned by elasticsearch when you add a document, but I would advice to always create your own mapping, which is the definition of what keys will be stored in the document, and what will be there values. Having a consistent type ensures that we know which fields we can sort on, which fields we can filter on and much more.</p>
+<p>Below I am creating an index named <code>example-index-with-mapping</code> and I am defining some fields.</p>
+<ul>
+<li><strong>Integer fields</strong>: The field defined as <code>&quot;id&quot;: { &quot;type&quot;: &quot;integer&quot; }</code>, defines id as an integer type field, that is the value which can be stored there is a numeric value.</li>
+<li><strong>Text field</strong>: <code>&quot;file_name&quot;: { &quot;type&quot;: &quot;text&quot; }</code>, defines that the field file_name is of a text datatype, a text datatype will let you store all kinds and sizes of textual data, the size limits are huge and you can actually store megabytes of data in text fields, and they will be searchable too.</li>
+<li><strong>Keyword field</strong>: <code>&quot;name&quot;: { &quot;type&quot;: &quot;keyword&quot; }</code>, defines a keyword field name, keyword fields are also string, but they are for small contents on which you would perform a sort, or a filter. Like when you want to filter all students with a Bachelor in Engineering education background. Examples of fields you may want to set as a Keyword can be emails, education, city, country, hostnames, tags etc.</li>
+<li><strong>Nested field</strong>: <code>&quot;resume&quot;: { &quot;type&quot;: &quot;nested&quot;, &quot;properties&quot;: { &quot;id&quot;: { &quot;type&quot;: &quot;integer&quot; }, &quot;file_name&quot;: { &quot;type&quot;: &quot;text&quot; } } },</code>, defines a nested field resume, a nested field is one which defines another document inside it. Here resume is defined as a nested document, with id and file_name as it&rsquo;s fields. A nested field is an array of documents inside the document.</li>
+<li><strong>Object field</strong> <code>&quot;education&quot;: { &quot;properties&quot;: { &quot;id&quot;: { &quot;type&quot;: &quot;integer&quot; }, &quot;name&quot;: { &quot;type&quot;: &quot;keyword&quot; } } }</code>, defines education as an Object datatype, note that the way education is defined is so similar to the nested field, the only difference is that we haven&rsquo;t mentioned type nested. An object field is used to attach a single document to a document. Inner objects are called object fields. They are not a set of documents like a nested field. In other words, the Nested field represents an array of objects and the object field represents a single object.</li>
+</ul>
+<p>Other important field types include date and booleans. <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/mapping-types.html" target="_blank" rel="noopener noreffer">See here for reading about all data types</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">curl -X PUT <span class="s2">&#34;localhost:9200/example-index-with-mapping?pretty&#34;</span> -H <span class="s1">&#39;Content-Type: application/json&#39;</span> -d <span class="s1">&#39;
+</span><span class="s1">{
+</span><span class="s1">  &#34;mappings&#34;: {
+</span><span class="s1">    &#34;_doc&#34;:{
+</span><span class="s1">      &#34;properties&#34;: {
+</span><span class="s1">        &#34;id&#34;: { &#34;type&#34;: &#34;integer&#34; },
+</span><span class="s1">        &#34;first_name&#34;: { &#34;type&#34;: &#34;text&#34; },
+</span><span class="s1">        &#34;last_name&#34;: { &#34;type&#34;: &#34;keyword&#34; },
+</span><span class="s1">        &#34;resume&#34;: {
+</span><span class="s1">          &#34;type&#34;: &#34;nested&#34;,
+</span><span class="s1">          &#34;properties&#34;: {
+</span><span class="s1">            &#34;id&#34;: { &#34;type&#34;: &#34;integer&#34; },
+</span><span class="s1">            &#34;file_name&#34;: { &#34;type&#34;: &#34;text&#34; }
+</span><span class="s1">          }
+</span><span class="s1">        },
+</span><span class="s1">        &#34;education&#34;: {
+</span><span class="s1">          &#34;properties&#34;: {
+</span><span class="s1">            &#34;id&#34;: { &#34;type&#34;: &#34;integer&#34; },
+</span><span class="s1">            &#34;name&#34;: { &#34;type&#34;: &#34;keyword&#34; }
+</span><span class="s1">          }
+</span><span class="s1">        }
+</span><span class="s1">      }
+</span><span class="s1">    }
+</span><span class="s1">  }
+</span><span class="s1">}&#39;</span></code></pre></td></tr></table>
+</div>
+</div>
+<br/>
+<p><figure><a class="lightgallery" href="/tech-elasticsearch-1/creating_index_with_mapping.png" title="/tech-elasticsearch-1/creating_index_with_mapping.png" data-thumbnail="/tech-elasticsearch-1/creating_index_with_mapping.png" data-sub-html="<h2>Creating an Index with mapping</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="creating_index_with_mapping.png"
+            data-srcset="/tech-elasticsearch-1/creating_index_with_mapping.png, creating_index_with_mapping.png 1.5x, /tech-elasticsearch-1/creating_index_with_mapping.png 2x"
+            data-sizes="auto"
+            alt="/tech-elasticsearch-1/creating_index_with_mapping.png" />
+    </a><figcaption class="image-caption">Creating an Index with mapping</figcaption>
+    </figure></p>
+<br/>
+<h3 id="indexing-a-document--adding-a-document-to-the-index">Indexing a Document / Adding a document to the Index</h3>
+<p>Now when we have a mapping set and an index created, we can add some documents. In the URL in the code below you will see the index name <code>example-index-with-mapping</code> and type <code>_doc</code> (note: types are deprecated, I have used it in the doc since I had an ES version 6 running, you can remove all it&rsquo;s occurrences if you are using version 7 or later and rest will be good), after the type you see <code>/1</code>, this is the id which I want to create a document at. Yes we need to provide id in the URL, and ES will either create a document or update it depending on whether the id is existing or not.</p>
+<p>You can notice that we send a simple object containing the details of whichever field we want to add, there is no compulsion that we send values for all fields which we defined in the mapping.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">curl -X PUT <span class="s2">&#34;localhost:9200/example-index-with-mapping/_doc/1?pretty&#34;</span> -H <span class="s1">&#39;Content-Type: application/json&#39;</span> -d <span class="s1">&#39;
+</span><span class="s1">{
+</span><span class="s1">  &#34;education&#34;: [
+</span><span class="s1">    {&#34;id&#34;:&#34;1&#34;,&#34;name&#34;:&#34;BTech&#34;},
+</span><span class="s1">    {&#34;id&#34;:&#34;2&#34;,&#34;name&#34;:&#34;HS&#34;}
+</span><span class="s1">  ],
+</span><span class="s1">  &#34;first_name&#34;: &#34;Rahul&#34;,
+</span><span class="s1">  &#34;last_name&#34;:&#34;Shah&#34;
+</span><span class="s1">}&#39;</span>
+</code></pre></td></tr></table>
+</div>
+</div><br/>
+<p><figure><a class="lightgallery" href="/tech-elasticsearch-1/indexing_a_document.png" title="/tech-elasticsearch-1/indexing_a_document.png" data-thumbnail="/tech-elasticsearch-1/indexing_a_document.png" data-sub-html="<h2>Indexing a document in the elasticsearch index</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="indexing_a_document.png"
+            data-srcset="/tech-elasticsearch-1/indexing_a_document.png, indexing_a_document.png 1.5x, /tech-elasticsearch-1/indexing_a_document.png 2x"
+            data-sizes="auto"
+            alt="/tech-elasticsearch-1/indexing_a_document.png" />
+    </a><figcaption class="image-caption">Indexing a document in the elasticsearch index</figcaption>
+    </figure></p>
+<br/>
+<h3 id="searching-our-document">Searching our document</h3>
+<p>Searching for a text in the index is about writing queries, here I have a basic match query which aims to find documents where the last_name field has the word &ldquo;Shah&rdquo;. You can see in the output we get back the document which has that last_name.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">curl -X GET <span class="s2">&#34;localhost:9200/example-index-with-mapping/_search?pretty&#34;</span> -H<span class="se">\
+</span><span class="se"></span><span class="s1">&#39;Content-Type: application/json&#39;</span> -d <span class="s1">&#39; {
+</span><span class="s1">  &#34;query&#34;: {
+</span><span class="s1">    &#34;match&#34;: {
+</span><span class="s1">      &#34;last_name&#34;: {
+</span><span class="s1">        &#34;query&#34;: &#34;Shah&#34;
+</span><span class="s1">      }
+</span><span class="s1">    }
+</span><span class="s1">  }
+</span><span class="s1">}&#39;</span>
+</code></pre></td></tr></table>
+</div>
+</div><br/>
+<p><figure><a class="lightgallery" href="/tech-elasticsearch-1/searching_a_document.png" title="/tech-elasticsearch-1/searching_a_document.png" data-thumbnail="/tech-elasticsearch-1/searching_a_document.png" data-sub-html="<h2>Searching the text Shah in our index</h2>">
+        <img
+            class="lazyload"
+            src="/svg/loading.min.svg"
+            data-src="searching_a_document.png"
+            data-srcset="/tech-elasticsearch-1/searching_a_document.png, searching_a_document.png 1.5x, /tech-elasticsearch-1/searching_a_document.png 2x"
+            data-sizes="auto"
+            alt="/tech-elasticsearch-1/searching_a_document.png" />
+    </a><figcaption class="image-caption">Searching the text Shah in our index</figcaption>
+    </figure></p>
+<br/>
+<h2 id="final-words">Final Words</h2>
+<p>In the post I have fairly touched a few important concepts which are required in working with Elasticsearch. In real life we don&rsquo;t send raw requests to elasticsearch service as shown above, we use elasticsearch SDK, and doing things becomes much more simpler than above. There are much more to elasticsearch, from queries to aggregations to custom techniques of indexing data. I find the <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/search.html" target="_blank" rel="noopener noreffer">elasticsearch documentation</a> very descriptive, so I won&rsquo;t be looking at writing posts on queries as such. But I will try to write some on simplifying your queries and customizing indexes and working with scripts etc, until then adios amigos.</p>
+<br/></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2020-10-02</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/tech-elasticsearch-1/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://faizaankhan.com/tech-elasticsearch-1/" data-title="Getting familiar with Elasticsearch" data-hashtags="Technical Articles,Elasticsearch"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://faizaankhan.com/tech-elasticsearch-1/" data-hashtag="Technical Articles"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://faizaankhan.com/tech-elasticsearch-1/"><i class="fab fa-linkedin fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/technical-articles/">Technical Articles</a>,&nbsp;<a href="/tags/elasticsearch/">Elasticsearch</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/guest-1/" class="prev" rel="prev" title="Web Scraping"><i class="fas fa-angle-left fa-fw"></i>Web Scraping</a></div>
+</div>
+<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line"><span class="author" itemprop="copyrightHolder">&nbsp;<a href="www.faizaankhan.com" target="_blank">Faizaan</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><script type="text/javascript" src="https://www-faizaankhan-com.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.2.0/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":30},"comment":{},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"index.en","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'UA-177891904-1', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-177891904-1" async></script></body>
+</html>
