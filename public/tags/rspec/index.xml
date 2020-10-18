@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Rspec - Tag - Faizaan Khan</title>
+        <link>https://faizaankhan.com/tags/rspec/</link>
+        <description>Rspec - Tag - Faizaan Khan</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>faizaan[dot]khan3@gmail[dot]com (Faizaan)</managingEditor>
+            <webMaster>faizaan[dot]khan3@gmail[dot]com (Faizaan)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 17 Oct 2020 15:32:23 &#43;0000</lastBuildDate><atom:link href="https://faizaankhan.com/tags/rspec/" rel="self" type="application/rss+xml" /><item>
+    <title>Writing specs for application controller methods using Rspec&#39;s anonymous controller</title>
+    <link>https://faizaankhan.com/tech-rails-rspec/</link>
+    <pubDate>Sat, 17 Oct 2020 15:32:23 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://faizaankhan.com/tech-rails-rspec/</guid>
+    <description><![CDATA[Intro Hi, today I am writing about Anonymous controllers of RSpec. If you are here, you must be knowing how important it is to write unit tests for your application code, in my case, tests have saved me a lot of time from screwing up my applications. In this post I want to take a couple of scenarios, and explain how to test your controller methods using Anonymous controllers.
+Scenario I got an Application Controller on-base inheriting from ActionController::API, and a namespaced controller, which is Api::Version6::ApiController, inheriting from ApplicationController, from where all my controllers for a specific API version inherit.]]></description>
+</item></channel>
+</rss>

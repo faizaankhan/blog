@@ -109,7 +109,7 @@ enableEmoji = true
       [languages.en.params.search]
         enable = true
         # type of search engine ("lunr", "algolia")
-        type = "algolia"
+        type = "lunr"
         # max index length of the chunked content
         contentLength = 4000
         # placeholder of the search bar
@@ -154,12 +154,12 @@ enableEmoji = true
           paginate = 6
       # Social config in home page
       [languages.en.params.social]
-        GitHub = "https://github.com/faizaankhan"
-        Linkedin = "https://www.linkedin.com/in/khanfaizaan"
-        # Twitter = "https://twitter.com/iamfaizaan_khan"
-        # Instagram = "https://www.instagram.com/just_faizaan/"
+        GitHub = "faizaankhan"
+        Linkedin = "khanfaizaan"
+        # Twitter = "iamfaizaan_khan"
+        # Instagram = "just_faizaan"
         # Gitlab = "https://gitlab.com/faizaan.khan3"
-        Stackoverflow = "https://stackoverflow.com/users/6050091/faizaan-khan"
+        Stackoverflow = "6050091/faizaan-khan"
         Email = "faizaan.khan3@gmail.com"
         # Facebook = "xxxx"
         # Telegram = "xxxx"
