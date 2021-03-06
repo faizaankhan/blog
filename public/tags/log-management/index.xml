@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Log Management - Tag - Faizaan Khan</title>
+        <link>https://faizaankhan.com/tags/log-management/</link>
+        <description>Log Management - Tag - Faizaan Khan</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>faizaan[dot]khan3@gmail[dot]com (Faizaan)</managingEditor>
+            <webMaster>faizaan[dot]khan3@gmail[dot]com (Faizaan)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 06 Mar 2021 12:51:06 &#43;0530</lastBuildDate><atom:link href="https://faizaankhan.com/tags/log-management/" rel="self" type="application/rss+xml" /><item>
+    <title>Curious about Kafka?</title>
+    <link>https://faizaankhan.com/tech-logs-1/</link>
+    <pubDate>Sat, 06 Mar 2021 12:51:06 &#43;0530</pubDate>
+    <author>Author</author>
+    <guid>https://faizaankhan.com/tech-logs-1/</guid>
+    <description><![CDATA[<br>
+<p>In strawman terms, Kafka is a messaging system which can be used across different systems to communicate. In the below image you can see that Kafka acts as a message bus in between web apps, microservices, analytics apps, databases.</p>]]></description>
+</item></channel>
+</rss>

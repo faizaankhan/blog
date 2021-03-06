@@ -2,23 +2,26 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://faizaankhan.com/tech-rails-rspec/</loc><lastmod>2020-10-17T15:32:23&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://faizaankhan.com/tech-elasticsearch-1/</loc><lastmod>2020-10-02T15:32:23&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>https://faizaankhan.com/guest-1/</loc><lastmod>2020-10-01T15:32:23&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://faizaankhan.com/tech-logs-1/</loc><lastmod>2021-03-06T12:51:06&#43;05:30</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://faizaankhan.com/tech-rails-rspec/</loc><lastmod>2020-10-17T15:32:23&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://faizaankhan.com/tech-elasticsearch-1/</loc><lastmod>2020-10-02T15:32:23&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://faizaankhan.com/guest-1/</loc><lastmod>2020-10-01T15:32:23&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://faizaankhan.com/tech-dynamo-2/</loc><lastmod>2020-09-12T15:32:23&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://faizaankhan.com/tech-dynamo-1/</loc><lastmod>2020-08-30T15:32:23&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://faizaankhan.com/personal-1/</loc><lastmod>2020-08-16T12:51:06&#43;05:30</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>https://faizaankhan.com/categories/</loc><lastmod>2020-10-17T15:32:23&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://faizaankhan.com/</loc><lastmod>2020-10-17T15:32:23&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://faizaankhan.com/posts/</loc><lastmod>2020-10-17T15:32:23&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://faizaankhan.com/tags/rails/</loc><lastmod>2020-10-17T15:32:23&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://faizaankhan.com/tags/rspec/</loc><lastmod>2020-10-17T15:32:23&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://faizaankhan.com/tags/</loc><lastmod>2020-10-17T15:32:23&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://faizaankhan.com/categories/tech/</loc><lastmod>2020-10-17T15:32:23&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://faizaankhan.com/tags/elasticsearch/</loc><lastmod>2020-10-02T15:32:23&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>https://faizaankhan.com/tags/technical-articles/</loc><lastmod>2020-10-02T15:32:23&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>https://faizaankhan.com/tags/python/</loc><lastmod>2020-10-01T15:32:23&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>https://faizaankhan.com/tags/web-scraping/</loc><lastmod>2020-10-01T15:32:23&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>https://faizaankhan.com/categories/</loc><lastmod>2021-03-06T12:51:06&#43;05:30</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://faizaankhan.com/</loc><lastmod>2021-03-06T12:51:06&#43;05:30</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://faizaankhan.com/tags/kafka/</loc><lastmod>2021-03-06T12:51:06&#43;05:30</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://faizaankhan.com/tags/log-management/</loc><lastmod>2021-03-06T12:51:06&#43;05:30</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://faizaankhan.com/posts/</loc><lastmod>2021-03-06T12:51:06&#43;05:30</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://faizaankhan.com/tags/</loc><lastmod>2021-03-06T12:51:06&#43;05:30</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://faizaankhan.com/categories/tech/</loc><lastmod>2021-03-06T12:51:06&#43;05:30</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://faizaankhan.com/tags/technical-articles/</loc><lastmod>2021-03-06T12:51:06&#43;05:30</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://faizaankhan.com/tags/rails/</loc><lastmod>2020-10-17T15:32:23&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://faizaankhan.com/tags/rspec/</loc><lastmod>2020-10-17T15:32:23&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://faizaankhan.com/tags/elasticsearch/</loc><lastmod>2020-10-02T15:32:23&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://faizaankhan.com/tags/python/</loc><lastmod>2020-10-01T15:32:23&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://faizaankhan.com/tags/web-scraping/</loc><lastmod>2020-10-01T15:32:23&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://faizaankhan.com/tags/aws/</loc><lastmod>2020-09-12T15:32:23&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://faizaankhan.com/tags/dynamodb/</loc><lastmod>2020-09-12T15:32:23&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>https://faizaankhan.com/categories/personal/</loc><lastmod>2020-08-16T12:51:06&#43;05:30</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
