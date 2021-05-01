@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>An Introduction to GraphQL for REST API Developers - Faizaan Khan</title><meta name="Description" content="Introduction to GraphQL from REST API Perspective"><meta property="og:title" content="An Introduction to GraphQL for REST API Developers" />
+<meta property="og:description" content="Introduction to GraphQL from REST API Perspective" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://faizaankhan.com/guest-2-graphql/" /><meta property="og:image" content="https://faizaankhan.com/guest-2-graphql/Featured.jpg"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-05-01T00:32:23&#43;00:00" />
+<meta property="article:modified_time" content="2021-05-01T00:32:23&#43;00:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://faizaankhan.com/guest-2-graphql/Featured.jpg"/>
+<meta name="twitter:title" content="An Introduction to GraphQL for REST API Developers"/>
+<meta name="twitter:description" content="Introduction to GraphQL from REST API Perspective"/>
+<meta name="application-name" content="Faizaan Khan Blogs">
+<meta name="apple-mobile-web-app-title" content="Faizaan Khan Blogs"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://faizaankhan.com/guest-2-graphql/" /><link rel="prev" href="https://faizaankhan.com/tech-logs-1/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "An Introduction to GraphQL for REST API Developers",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/faizaankhan.com\/guest-2-graphql\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/faizaankhan.com\/guest-2-graphql\/Featured.jpg",
+                            "width":  4272 ,
+                            "height":  2908 
+                        }],"genre": "posts","keywords": "GraphQL","wordcount":  880 ,
+        "url": "https:\/\/faizaankhan.com\/guest-2-graphql\/","datePublished": "2021-05-01T00:32:23+00:00","dateModified": "2021-05-01T00:32:23+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "Faizaan Ahmed Khan","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/faizaankhan.com\/images\/avatar.png",
+                    "width":  528 ,
+                    "height":  560 
+                }},"author": {
+                "@type": "Person",
+                "name": "Vikas Kumar"
+            },"description": "Introduction to GraphQL from REST API Perspective"
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Faizaan Khan">Faizaan Khan</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/categories/personal/"> Personal </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/faizaankhan3" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Faizaan Khan">Faizaan Khan</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/categories/personal/" title="">Personal</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/faizaankhan3" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">An Introduction to GraphQL for REST API Developers</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://www.geekyhub.in/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Vikas Kumar</a></span>&nbsp;<span class="post-category">included in <a href="/categories/tech/"><i class="far fa-folder fa-fw"></i>Tech</a>&nbsp;<a href="/categories/guest/"><i class="far fa-folder fa-fw"></i>Guest</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-05-01">2021-05-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;880 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;5 minutes&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/guest-2-graphql/Featured.jpg"
+        data-srcset="/guest-2-graphql/Featured.jpg, /guest-2-graphql/Featured.jpg 1.5x, /guest-2-graphql/Featured.jpg 2x"
+        data-sizes="auto"
+        alt="/guest-2-graphql/Featured.jpg"
+        title="Introduction to GraphQL from REST API Perspective" /></div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#why-graphql">Why GraphQL?</a></li>
+    <li><a href="#how-graphql-solves-the-problem">How GraphQL solves the problem.</a></li>
+    <li><a href="#basic-idea-of-implementing-a-graphql-backend">Basic Idea of implementing a GraphQL Backend.</a>
+      <ul>
+        <li><a href="#youll-need-a-minimum-of-three-steps-to-have-basic-crud">You&rsquo;ll need a minimum of three steps to have basic crud.</a></li>
+      </ul>
+    </li>
+    <li><a href="#benifit-of-using-graphql">Benifit of using GraphQL</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="why-graphql">Why GraphQL?</h2>
+<p>Before jumping into GrapQl, let us analyze a scenario for REST API.</p>
+<p>In REST APIs, we have resources. Each resource has an ID and methods to create, update, delete.
+Consider a situation; we have three models, company, employee, and task.  A company has many employees, has many tasks, a task has many employees. And also, let&rsquo;s say each task has a supervisor who is an employee.</p>
+<br/>
+<p>We can assume that we have GET, POST, PUT, PATCH, DELETE supported endpoints for all the resources.</p>
+<p><strong>Scenario 1:</strong> Get company information for an ID. Call company endpoint with Method type GET and ID in parameters.</p>
+<p><strong>Scenario 2:</strong> Get company name for ID. Scenario 1 works fine, but we will still be getting all data, and we&rsquo;ll have to filter data at the client-side, which is not generally ideal even if data is not sensitive. One solution is to add an extra parameter in the GET function to tell what information we need, and our server can send only those data. i.e., { &ldquo;only&rdquo;: [&ldquo;name&rdquo;]}</p>
+<p><strong>Scenario 3:</strong> Get Employee details, the task he is working on, and the task details. One option we can see here is to call GET for the ID, look for Task ID in the response make another request to get supervisor ID from task ID. Send a nested response from the API itself.</p>
+<p>For the above three scenarios, there are many exciting approaches in REST itself. Still, as the size and complexity of the application grow, you will be finding yourself writing some dedicated specific purpose APIs.</p>
+<h2 id="how-graphql-solves-the-problem">How GraphQL solves the problem.</h2>
+<p>GraphQL gives you an option to write query in the frontend. So the concept is requester of data will query the data they need to curate it, instead of a controller doing it for them.</p>
+<p>It doesn&rsquo;t have an easy learning curve as REST API, but once you are comfortable with it and the project boilerplate is ready, it will be much easier to build upon.</p>
+<h2 id="basic-idea-of-implementing-a-graphql-backend">Basic Idea of implementing a GraphQL Backend.</h2>
+<p>In GraphQL, you&rsquo;ll have only one endpoint. Your frontend application will always request to that single endpoint with a GQL. With the GQL ( Graph Query Language), the backend will identify what data is needed and send it.</p>
+<p>The server should be able to understand GQL; else, it will not understand the request. So we will have to add the capability to the server. To do this, we need to add a GraphQL Implementation to our backend. For NodeJs, <a href="https://www.apollographql.com/docs/apollo-server/" target="_blank" rel="noopener noreffer">Apollo</a> is an option; for Rails, there is a gem called <a href="https://graphql-ruby.org/" target="_blank" rel="noopener noreffer">graphql</a>. Feel free to find the perfect graphql implementation for your backend; there are many.</p>
+<h3 id="youll-need-a-minimum-of-three-steps-to-have-basic-crud">You&rsquo;ll need a minimum of three steps to have basic crud.</h3>
+<ul>
+<li>
+<p>Define Schema: This part is just like defining models. It will let your graphql engine know what data are available. It will feel repetitive as we already have models with similar code, but it will be worth it once it&rsquo;s done.</p>
+</li>
+<li>
+<p>Write Query Resolvers: In this step, you will how to get the data. It is basically like the get method of the controller but a bit complex to implement because you may want to generalize things to handle joins, and single data and array of data, etc.</p>
+</li>
+<li>
+<p>Write Mutation Resolvers: This is same as Query Resolvers, but instead, for fetching data, it will be for adding and editing data.</p>
+</li>
+</ul>
+<p>After these steps, you can test it using <a href="https://graphql-dotnet.github.io/docs/getting-started/graphiql/" target="_blank" rel="noopener noreffer">GraphiQl</a>, just like PostMan for REST.</p>
+<h2 id="benifit-of-using-graphql">Benifit of using GraphQL</h2>
+<p>This all feels like a lot of work compared to developing simple APIs. So there should be some benefits to adopt graphQl.</p>
+<ul>
+<li>
+<p>You&rsquo;ll always fetch the data you need. You don&rsquo;t have to use an API that sends some extra data that you don&rsquo;t need.</p>
+</li>
+<li>
+<p>Option to batch requests from the front end. As all requests are directed to a single endpoint and contain queries in the same language, these can be clubbed in a single request, and GraphQL can handle multiple queries in one request.</p>
+</li>
+<li>
+<p>If you are developing SPA, using component-based framework batching will be helpful as it can fetch data for each component at once, so a user won&rsquo;t be waiting for half of the page to load. Many GraphQL Client libraries have this inbuilt, and some can also split if a query is too big for the first contentful paint.</p>
+</li>
+<li>
+<p>As the backends schema matures, the developer will find touching backend code less and less as most of the front data needs can be handled by GQL. Much dynamic UI can be built without the need for API to handle every minor thing.</p>
+</li>
+</ul>
+<p>There are some other features to look for, such as subscriptions, authorizations, validation, pagination, etc., which will be helpful in the development lifecycle.</p>
+<p>I&rsquo;ll highly recommend getting an overview of the fundamentals from <a href="https://graphql.org/learn/" target="_blank" rel="noopener noreffer">https://graphql.org/learn/</a> and judge if it&rsquo;s a viable option for your current or next project.</p>
+<br/>
+<div class="details admonition tip open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw"></i>Guest Post<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">Shoutout to my friend Vikas for finally giving me this writeup :), I haven&rsquo;t got a chance
+to use GraphQL yet, but I see good enough reason to explore it soon. I hope you too are up for the same.
+Also, Vikas has been writing blogs for some time, do check out his page <a href="https://www.geekyhub.in/" target="_blank" rel="noopener noreffer">geekyhub</a>, there is some brilliant content in there.</div>
+        </div>
+    </div>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2021-05-01</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/guest-2-graphql/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://faizaankhan.com/guest-2-graphql/" data-title="An Introduction to GraphQL for REST API Developers" data-hashtags="GraphQL"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://faizaankhan.com/guest-2-graphql/" data-hashtag="GraphQL"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://faizaankhan.com/guest-2-graphql/"><i class="fab fa-linkedin fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/graphql/">GraphQL</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/tech-logs-1/" class="prev" rel="prev" title="Curious about Kafka?"><i class="fas fa-angle-left fa-fw"></i>Curious about Kafka?</a></div>
+</div>
+<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line"><span class="author" itemprop="copyrightHolder">&nbsp;<a href="www.faizaankhan.com" target="_blank">Faizaan</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><script type="text/javascript" src="https://www-faizaankhan-com.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.8/lunr.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":150},"comment":{},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript">
+            window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());
+            gtag('config', 'UA-177891904-1', { 'anonymize_ip': true });
+        </script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=UA-177891904-1" async></script></body>
+</html>

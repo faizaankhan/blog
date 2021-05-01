@@ -1,21 +1,5 @@
----
-weight: 1
-title: "An Introduction to GraphQL for REST API Developers"
-date: 2021-05-01T00:32:23+00:00
-lastmod: 2021-05-01T00:32:23+00:00
-draft: false
-author: "Vikas Kumar"
-authorLink: "https://www.geekyhub.in/"
-description: "Introduction to GraphQL from REST API Perspective"
-resources:
-  - name: "featured-image"
-    src: "Featured.jpg"
+# An Introduction to GraphQL for REST API Developers
 
-tags: ["GraphQL"]
-categories: ["Tech", "Guest"]
-
-lightgallery: true
----
 
 ## Why GraphQL?
 
@@ -82,3 +66,4 @@ Shoutout to my friend Vikas for finally giving me this writeup :), I haven't got
 to use GraphQL yet, but I see good enough reason to explore it soon. I hope you too are up for the same.
 Also, Vikas has been writing blogs for some time, do check out his page [geekyhub](https://www.geekyhub.in/), there is some brilliant content in there.
 {{< /admonition >}}
+

@@ -4,7 +4,16 @@
         <link>https://faizaankhan.com/categories/tech/</link>
         <description>Tech - Category - Faizaan Khan</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>faizaan[dot]khan3@gmail[dot]com (Faizaan)</managingEditor>
-            <webMaster>faizaan[dot]khan3@gmail[dot]com (Faizaan)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 06 Mar 2021 12:51:06 &#43;0530</lastBuildDate><atom:link href="https://faizaankhan.com/categories/tech/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>faizaan[dot]khan3@gmail[dot]com (Faizaan)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 01 May 2021 00:32:23 &#43;0000</lastBuildDate><atom:link href="https://faizaankhan.com/categories/tech/" rel="self" type="application/rss+xml" /><item>
+    <title>An Introduction to GraphQL for REST API Developers</title>
+    <link>https://faizaankhan.com/guest-2-graphql/</link>
+    <pubDate>Sat, 01 May 2021 00:32:23 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://faizaankhan.com/guest-2-graphql/</guid>
+    <description><![CDATA[Why GraphQL? Before jumping into GrapQl, let us analyze a scenario for REST API.
+In REST APIs, we have resources. Each resource has an ID and methods to create, update, delete. Consider a situation; we have three models, company, employee, and task. A company has many employees, has many tasks, a task has many employees. And also, let&rsquo;s say each task has a supervisor who is an employee.
+ We can assume that we have GET, POST, PUT, PATCH, DELETE supported endpoints for all the resources.]]></description>
+</item><item>
     <title>Curious about Kafka?</title>
     <link>https://faizaankhan.com/tech-logs-1/</link>
     <pubDate>Sat, 06 Mar 2021 12:51:06 &#43;0530</pubDate>
