@@ -5,7 +5,7 @@ date: 2021-05-01T00:32:23+00:00
 lastmod: 2021-05-01T00:32:23+00:00
 draft: false
 author: "Vikas Kumar"
-authorLink: "https://www.geekyhub.in//"
+authorLink: "https://www.geekyhub.in/"
 description: "Introduction to GraphQl from REST API Perspective"
 resources:
   - name: "featured-image"
