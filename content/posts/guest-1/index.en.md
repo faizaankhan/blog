@@ -17,23 +17,6 @@ categories: ["Tech"]
 lightgallery: true
 ---
 
-{{< mermaid >}}
-classDiagram
-  Class01 <|-- AveryLongClass : Cool
-  Class03 *-- Class04
-  Class05 o-- Class06
-  Class07 .. Class08
-  Class09 --> C2 : Where am i?
-  Class09 --* C3
-  Class09 --|> Class07
-  Class07 : equals()
-  Class07 : Object[] elementData
-  Class01 : size()
-  Class01 : int chimp
-  Class01 : int gorilla
-  Class08 <--> C2: Cool label
-{{< /mermaid >}}
-
 Did you know that web scraping is integral to the data analysis process? It is because it allows quick and efficient extraction of data from different sources, which can then be processed to glean insights as required. Data Analysis is a huge market today, for some of the software giants it's the source of every decision making, even for small businesses, they get to keep track of the brand value and reputation of their company. You never know when a small automation script to dig in data from various sources might find someplace in engineering life or workspace :smile: (ignore the emoticon, just trying to get your attention).
 
 In this post, I will be using python, it's a diverse programming language and when you pick the right tools, libraries, you are a superhero. Starting to learn any programming language takes curiosity, will, time, and a couple of energy drinks :wink:, I would suggest you getting the basic concept of Python handy if you are not already using it.
