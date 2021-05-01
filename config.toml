@@ -62,14 +62,14 @@ enableEmoji = true
         url = "/categories/"
         title = ""
         weight = 3
-      [[languages.en.menu.main]]
-        identifier = "personal"
-        pre = ""
-        post = ""
-        name = "Personal"
-        url = "/categories/personal/"
-        title = ""
-        weight = 4
+#      [[languages.en.menu.main]]
+#        identifier = "personal"
+#        pre = ""
+#        post = ""
+#        name = "Personal"
+#        url = "/categories/personal/"
+#        title = ""
+#        weight = 4
       [[languages.en.menu.main]]
         identifier = "about"
         pre = ""
