@@ -9,9 +9,8 @@
 <meta property="og:description" content="Shayan writes about his experience with Web Scraping he had recently" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://faizaankhan.com/guest-1/" /><meta property="og:image" content="https://faizaankhan.com/guest-1/Featured.jpg"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2020-10-01T15:32:23&#43;00:00" />
-<meta property="article:modified_time" content="2020-10-01T15:32:23&#43;00:00" />
-
+<meta property="article:published_time" content="2020-10-01T15:32:23+00:00" />
+<meta property="article:modified_time" content="2020-10-01T15:32:23+00:00" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://faizaankhan.com/guest-1/Featured.jpg"/>
 <meta name="twitter:title" content="Web Scraping"/>
@@ -33,7 +32,7 @@
                             "url": "https:\/\/faizaankhan.com\/guest-1\/Featured.jpg",
                             "width":  6000 ,
                             "height":  2419 
-                        }],"genre": "posts","keywords": "Python, Technical Articles, Web Scraping","wordcount":  841 ,
+                        }],"genre": "posts","keywords": "Python, Technical Articles, Web Scraping","wordcount":  832 ,
         "url": "https:\/\/faizaankhan.com\/guest-1\/","datePublished": "2020-10-01T15:32:23+00:00","dateModified": "2020-10-01T15:32:23+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Faizaan Ahmed Khan","logo": {
@@ -115,7 +114,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Web Scraping</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://www.linkedin.com/in/shayan-ahmed-504a52169/" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Shayan Ahmed Khan</a></span>&nbsp;<span class="post-category">included in <a href="/categories/tech/"><i class="far fa-folder fa-fw"></i>Tech</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-10-01">2020-10-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;841 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-10-01">2020-10-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;832 words&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;4 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -176,13 +175,13 @@
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">from bs4 import BeautifulSoup
-from urllib.request import Request, urlopen
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">from bs4 import BeautifulSoup
+</span></span><span class="line"><span class="cl">from urllib.request import Request, urlopen
+</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
@@ -191,22 +190,22 @@ from urllib.request import Request, urlopen
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">  url = &#34;abc.com&#34;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  url = &#34;abc.com&#34;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
 <li><strong>Step 3</strong>: making a request to access resources using the request module</li>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">req = Request(url+&#34;-&#34;+str(a), headers={&#39;User-Agent&#39;: &#39;Mozilla/5.0&#39;})
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">req = Request(url+&#34;-&#34;+str(a), headers={&#39;User-Agent&#39;: &#39;Mozilla/5.0&#39;})
+</span></span></code></pre></td></tr></table>
 </div>
 </div><div class="details admonition note open">
         <div class="details-summary admonition-title">
@@ -223,13 +222,13 @@ Creating soup object to parse HTML script</li>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">html_doc = urlopen(req).read()
-soup=BeautifulSoup(html_doc,&#39;html.parser&#39;)
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">html_doc = urlopen(req).read()
+</span></span><span class="line"><span class="cl">soup=BeautifulSoup(html_doc,&#39;html.parser&#39;)
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>You can see the beautiful soup object
 <code>print(soup.prettify)</code>.Which represents the document as a nested data structure</p>
@@ -256,42 +255,42 @@ Use a predefined function to extract your desired information.</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">[&lt;a class=&#34;sister&#34; href=&#34;http://example.com/elsie&#34; id=&#34;link1&#34;&gt;Elsie&lt;/a&gt;,
- &lt;a class=&#34;sister&#34; href=&#34;http://example.com/lacie&#34; id=&#34;link2&#34;&gt;Lacie&lt;/a&gt;,
- &lt;a class=&#34;sister&#34; href=&#34;http://example.com/tillie&#34; id=&#34;link3&#34;&gt;Tillie&lt;/a&gt;]
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[&lt;a class=&#34;sister&#34; href=&#34;http://example.com/elsie&#34; id=&#34;link1&#34;&gt;Elsie&lt;/a&gt;,
+</span></span><span class="line"><span class="cl"> &lt;a class=&#34;sister&#34; href=&#34;http://example.com/lacie&#34; id=&#34;link2&#34;&gt;Lacie&lt;/a&gt;,
+</span></span><span class="line"><span class="cl"> &lt;a class=&#34;sister&#34; href=&#34;http://example.com/tillie&#34; id=&#34;link3&#34;&gt;Tillie&lt;/a&gt;]
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>You can also call get(&lsquo;href&rsquo;) to get links from the anchor (<code>&lt;a&gt;</code>) tag.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">for link in soup.find_all(&#39;a&#39;):
-   print(link.get(&#39;href&#39;))
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">for link in soup.find_all(&#39;a&#39;):
+</span></span><span class="line"><span class="cl">   print(link.get(&#39;href&#39;))
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>output</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">http://example.com/elsie
-http://example.com/lacie
-http://example.com/tillie
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">http://example.com/elsie
+</span></span><span class="line"><span class="cl">http://example.com/lacie
+</span></span><span class="line"><span class="cl">http://example.com/tillie
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="final-words">Final Words</h3>
-<p>It is very straightforward to extract data using beautiful soup. After which you need to use data structures such as the data frame in the pandas' library which is a very famous one to store the extracted data in a well-structured way. It&rsquo;s a simple application of python that you can learn if you are a college fresher and this also gives you some hold on python programming and confidence about how basic the coding world is.</p>
+<p>It is very straightforward to extract data using beautiful soup. After which you need to use data structures such as the data frame in the pandas&rsquo; library which is a very famous one to store the extracted data in a well-structured way. It&rsquo;s a simple application of python that you can learn if you are a college fresher and this also gives you some hold on python programming and confidence about how basic the coding world is.</p>
 <p>I wrote a web-scrapper sometimes back, to extract information from Naukri( a job portal), which scrapes the Job vacancies listed on Naukri&rsquo;s website in an excel sheet. After which we worked on analyzing what languages are more in demand.</p>
 <p>Here is the link to my <a href="https://github.com/imShayan/Naukri-Scrapper/blob/master/Naukri_in_Banglore.py" target="_blank" rel="noopener noreffer">github repository</a></p>
 <p>Hope you enjoyed the post!!!</p>

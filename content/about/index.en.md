@@ -14,6 +14,18 @@ math:
 # What I'm doing now
 <br>
 
+## As on 17th June 2023
+### I have shifted to Bengaluru
+### I am travelling a lot and have started working harder on my personal and professional goals
+### My plans are to improve my DSA skills and look for more career opportunities
+### I have been on my learning path to handle a camera, and have been clicking some good photos
+### Still listening to all kinds of music.
+
+<br>
+<br>
+<br>
+<br>
+
 ## As on 13th September 2020
 ### I am working on Ruby on Rails and React applications.
 ### Getting my hands dirty with AWS cloud services.

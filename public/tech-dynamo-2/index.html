@@ -9,9 +9,8 @@
 <meta property="og:description" content="I show how to configure dynamoDB in dev environment and discuss some of the basic API functionality of DynamoDB in this post" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://faizaankhan.com/tech-dynamo-2/" /><meta property="og:image" content="https://faizaankhan.com/tech-dynamo-2/Featured.jpeg"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2020-09-12T15:32:23&#43;00:00" />
-<meta property="article:modified_time" content="2020-09-12T15:32:23&#43;00:00" />
-
+<meta property="article:published_time" content="2020-09-12T15:32:23+00:00" />
+<meta property="article:modified_time" content="2020-09-12T15:32:23+00:00" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://faizaankhan.com/tech-dynamo-2/Featured.jpeg"/>
 <meta name="twitter:title" content="Configuring DynamoDB and basic operations for ruby apps"/>
@@ -33,7 +32,7 @@
                             "url": "https:\/\/faizaankhan.com\/tech-dynamo-2\/Featured.jpeg",
                             "width":  1280 ,
                             "height":  853 
-                        }],"genre": "posts","keywords": "AWS, Technical Articles, DynamoDB","wordcount":  2496 ,
+                        }],"genre": "posts","keywords": "AWS, Technical Articles, DynamoDB","wordcount":  2486 ,
         "url": "https:\/\/faizaankhan.com\/tech-dynamo-2\/","datePublished": "2020-09-12T15:32:23+00:00","dateModified": "2020-09-12T15:32:23+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Faizaan Ahmed Khan","logo": {
@@ -115,7 +114,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Configuring DynamoDB and basic operations for ruby apps</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="www.faizaankhan.com" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Faizaan Ahmed Khan</a></span>&nbsp;<span class="post-category">included in <a href="/categories/tech/"><i class="far fa-folder fa-fw"></i>Tech</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-09-12">2020-09-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;2496 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-09-12">2020-09-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;2486 words&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;12 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -229,15 +228,15 @@ At the time of writing this I&rsquo;m using <code>gem 'aws-sdk-dynamodb', '~&gt;
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># In Gemfile</span>
-<span class="n">source</span> <span class="s1">&#39;https://rubygems.org&#39;</span>
-<span class="n">gem</span> <span class="s1">&#39;aws-sdk-dynamodb&#39;</span><span class="p">,</span> <span class="s1">&#39;~&gt; 1.0.0.rc7&#39;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="c1"># In Gemfile</span>
+</span></span><span class="line"><span class="cl"><span class="n">source</span> <span class="s1">&#39;https://rubygems.org&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">gem</span> <span class="s1">&#39;aws-sdk-dynamodb&#39;</span><span class="p">,</span> <span class="s1">&#39;~&gt; 1.0.0.rc7&#39;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="2">
 <li>Now we will create an AWS dynamoDB client object, such that it can be used to perform the actions.</li>
@@ -245,34 +244,34 @@ At the time of writing this I&rsquo;m using <code>gem 'aws-sdk-dynamodb', '~&gt;
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby">  <span class="k">def</span> <span class="nf">client</span>
-    <span class="vi">@client</span> <span class="o">||=</span> <span class="no">Aws</span><span class="o">::</span><span class="no">DynamoDB</span><span class="o">::</span><span class="no">Client</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">region</span><span class="p">:</span> <span class="s2">&#34;us-west-2&#34;</span><span class="p">)</span>
-  <span class="k">end</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl">  <span class="k">def</span> <span class="nf">client</span>
+</span></span><span class="line"><span class="cl">    <span class="vi">@client</span> <span class="o">||=</span> <span class="no">Aws</span><span class="o">::</span><span class="no">DynamoDB</span><span class="o">::</span><span class="no">Client</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">region</span><span class="p">:</span> <span class="s2">&#34;us-west-2&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="2">
 <li>Ok, we can define the aws global configs for this app if required as below, assuming credentials struct is from the environment. And that should be good to go for using client.</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby">  <span class="no">Aws</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
-  <span class="ss">access_key_id</span><span class="p">:</span> <span class="n">credentials</span><span class="o">.</span><span class="n">aws</span><span class="o">[</span><span class="ss">:access_key_id</span><span class="o">]</span><span class="p">,</span>
-  <span class="ss">secret_access_key</span><span class="p">:</span> <span class="n">credentials</span><span class="o">.</span><span class="n">aws</span><span class="o">[</span><span class="ss">:secret_access_key</span><span class="o">]</span><span class="p">,</span>
-  <span class="ss">region</span><span class="p">:</span> <span class="n">credentials</span><span class="o">.</span><span class="n">aws</span><span class="o">[</span><span class="ss">:region</span><span class="o">]</span>
-<span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl">  <span class="no">Aws</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="ss">access_key_id</span><span class="p">:</span> <span class="n">credentials</span><span class="o">.</span><span class="n">aws</span><span class="o">[</span><span class="ss">:access_key_id</span><span class="o">]</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="ss">secret_access_key</span><span class="p">:</span> <span class="n">credentials</span><span class="o">.</span><span class="n">aws</span><span class="o">[</span><span class="ss">:secret_access_key</span><span class="o">]</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="ss">region</span><span class="p">:</span> <span class="n">credentials</span><span class="o">.</span><span class="n">aws</span><span class="o">[</span><span class="ss">:region</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="3">
 <li>We can also pass, the config key-value pairs to the Aws::DynamoDB::Client class while initializing it, and that will also be good enough.</li>
@@ -280,17 +279,17 @@ At the time of writing this I&rsquo;m using <code>gem 'aws-sdk-dynamodb', '~&gt;
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby">    <span class="k">def</span> <span class="nf">client</span>
-      <span class="vi">@client</span> <span class="o">||=</span> <span class="no">Aws</span><span class="o">::</span><span class="no">DynamoDB</span><span class="o">::</span><span class="no">Client</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">region</span><span class="p">:</span> <span class="s1">&#39;us-west-2&#39;</span><span class="p">,</span>
-                                            <span class="ss">endpoint</span><span class="p">:</span> <span class="s1">&#39;http://localhost:8000&#39;</span><span class="p">)</span>
-    <span class="k">end</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">client</span>
+</span></span><span class="line"><span class="cl">      <span class="vi">@client</span> <span class="o">||=</span> <span class="no">Aws</span><span class="o">::</span><span class="no">DynamoDB</span><span class="o">::</span><span class="no">Client</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">region</span><span class="p">:</span> <span class="s1">&#39;us-west-2&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                            <span class="ss">endpoint</span><span class="p">:</span> <span class="s1">&#39;http://localhost:8000&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">end</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>By now, we have added the required gem, and have a client object. This looks like the right time to create a table. So let&rsquo;s go ahead and do that.</p>
 <h2 id="working-with-tables-and-records">Working with tables and records</h2>
@@ -327,7 +326,7 @@ If you need to understand how the billing works for the provisioned system you c
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -368,46 +367,46 @@ If you need to understand how the billing works for the provisioned system you c
 </span><span class="lnt">39
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># main.rb</span>
-<span class="nb">require</span> <span class="s1">&#39;aws-sdk-dynamodb&#39;</span>
-
-<span class="k">def</span> <span class="nf">create_test_table</span>
-  <span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="ss">table_name</span><span class="p">:</span> <span class="s2">&#34;test-dev&#34;</span><span class="p">,</span>
-    <span class="ss">key_schema</span><span class="p">:</span> <span class="o">[</span>
-      <span class="p">{</span>
-        <span class="ss">attribute_name</span><span class="p">:</span> <span class="s2">&#34;id&#34;</span><span class="p">,</span>
-        <span class="ss">key_type</span><span class="p">:</span> <span class="s2">&#34;HASH&#34;</span> <span class="c1"># Partition Key</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="ss">attribute_name</span><span class="p">:</span> <span class="s2">&#34;submitted_at&#34;</span><span class="p">,</span>
-        <span class="ss">key_type</span><span class="p">:</span> <span class="s2">&#34;RANGE&#34;</span> <span class="c1"># Sort Key</span>
-      <span class="p">}</span>
-    <span class="o">]</span><span class="p">,</span>
-    <span class="ss">attribute_definitions</span><span class="p">:</span> <span class="o">[</span>
-      <span class="p">{</span> <span class="ss">attribute_name</span><span class="p">:</span> <span class="s2">&#34;id&#34;</span><span class="p">,</span> <span class="ss">attribute_type</span><span class="p">:</span> <span class="s2">&#34;S&#34;</span> <span class="p">},</span>
-      <span class="p">{</span> <span class="ss">attribute_name</span><span class="p">:</span> <span class="s2">&#34;submitted_at&#34;</span><span class="p">,</span> <span class="ss">attribute_type</span><span class="p">:</span> <span class="s2">&#34;N&#34;</span> <span class="p">}</span>
-    <span class="o">]</span><span class="p">,</span>
-    <span class="ss">provisioned_throughput</span><span class="p">:</span> <span class="p">{</span>
-      <span class="ss">read_capacity_units</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-      <span class="ss">write_capacity_units</span><span class="p">:</span> <span class="mi">1</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-
-  <span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">create_table</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
-  <span class="nb">puts</span> <span class="s2">&#34;Status: &#34;</span> <span class="o">+</span> <span class="n">result</span><span class="o">.</span><span class="n">table_description</span><span class="o">.</span><span class="n">table_status</span>
-
-<span class="k">rescue</span> <span class="no">Aws</span><span class="o">::</span><span class="no">DynamoDB</span><span class="o">::</span><span class="no">Errors</span><span class="o">::</span><span class="no">ServiceError</span> <span class="o">=&gt;</span> <span class="n">e</span>
-  <span class="nb">puts</span> <span class="s2">&#34;Unable to create table: </span><span class="si">#{</span><span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="si">}</span><span class="se">\n</span><span class="s2">&#34;</span>
-<span class="k">end</span>
-
-<span class="k">def</span> <span class="nf">client</span>
-  <span class="vi">@client</span> <span class="o">||=</span> <span class="no">Aws</span><span class="o">::</span><span class="no">DynamoDB</span><span class="o">::</span><span class="no">Client</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">region</span><span class="p">:</span> <span class="s1">&#39;us-west-2&#39;</span><span class="p">,</span>
-                                        <span class="ss">endpoint</span><span class="p">:</span> <span class="s1">&#39;http://localhost:8000&#39;</span><span class="p">)</span>
-<span class="k">end</span>
-
-<span class="n">create_test_table</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="c1"># main.rb</span>
+</span></span><span class="line"><span class="cl"><span class="nb">require</span> <span class="s1">&#39;aws-sdk-dynamodb&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">create_test_table</span>
+</span></span><span class="line"><span class="cl">  <span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="ss">table_name</span><span class="p">:</span> <span class="s2">&#34;test-dev&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="ss">key_schema</span><span class="p">:</span> <span class="o">[</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="ss">attribute_name</span><span class="p">:</span> <span class="s2">&#34;id&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="ss">key_type</span><span class="p">:</span> <span class="s2">&#34;HASH&#34;</span> <span class="c1"># Partition Key</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="ss">attribute_name</span><span class="p">:</span> <span class="s2">&#34;submitted_at&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="ss">key_type</span><span class="p">:</span> <span class="s2">&#34;RANGE&#34;</span> <span class="c1"># Sort Key</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">]</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="ss">attribute_definitions</span><span class="p">:</span> <span class="o">[</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span> <span class="ss">attribute_name</span><span class="p">:</span> <span class="s2">&#34;id&#34;</span><span class="p">,</span> <span class="ss">attribute_type</span><span class="p">:</span> <span class="s2">&#34;S&#34;</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span> <span class="ss">attribute_name</span><span class="p">:</span> <span class="s2">&#34;submitted_at&#34;</span><span class="p">,</span> <span class="ss">attribute_type</span><span class="p">:</span> <span class="s2">&#34;N&#34;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">]</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="ss">provisioned_throughput</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="ss">read_capacity_units</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="ss">write_capacity_units</span><span class="p">:</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">create_table</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">puts</span> <span class="s2">&#34;Status: &#34;</span> <span class="o">+</span> <span class="n">result</span><span class="o">.</span><span class="n">table_description</span><span class="o">.</span><span class="n">table_status</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">rescue</span> <span class="no">Aws</span><span class="o">::</span><span class="no">DynamoDB</span><span class="o">::</span><span class="no">Errors</span><span class="o">::</span><span class="no">ServiceError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">puts</span> <span class="s2">&#34;Unable to create table: </span><span class="si">#{</span><span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="si">}</span><span class="se">\n</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">client</span>
+</span></span><span class="line"><span class="cl">  <span class="vi">@client</span> <span class="o">||=</span> <span class="no">Aws</span><span class="o">::</span><span class="no">DynamoDB</span><span class="o">::</span><span class="no">Client</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">region</span><span class="p">:</span> <span class="s1">&#39;us-west-2&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                        <span class="ss">endpoint</span><span class="p">:</span> <span class="s1">&#39;http://localhost:8000&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">create_test_table</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>After running the above code, you should be able to see your table listed using the call we made earlier.
 <code>aws dynamodb list-tables --endpoint-url http://localhost:8000</code></p>
@@ -427,7 +426,7 @@ For updates aws provides <a href="https://docs.aws.amazon.com/sdk-for-ruby/v2/ap
 <p>Here, I am enabling time to live specification and also setting the attribute name, which will allow us to add a epoch value for the records time to live.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -444,35 +443,33 @@ For updates aws provides <a href="https://docs.aws.amazon.com/sdk-for-ruby/v2/ap
 </span><span class="lnt">15
 </span><span class="lnt">16
 </span><span class="lnt">17
-</span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby">  <span class="k">def</span> <span class="nf">update_table</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">update_time_to_live</span><span class="p">(</span>
-      <span class="p">{</span>
-        <span class="ss">table_name</span><span class="p">:</span> <span class="s1">&#39;test-dev&#39;</span><span class="p">,</span>
-        <span class="ss">time_to_live_specification</span><span class="p">:</span> <span class="p">{</span>
-          <span class="ss">enabled</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span>
-          <span class="ss">attribute_name</span><span class="p">:</span> <span class="s2">&#34;ttl&#34;</span>
-        <span class="p">}</span>
-      <span class="p">}</span>
-    <span class="p">)</span>
-
-    <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">time_to_live_specification</span><span class="o">.</span><span class="n">enabled</span>
-      <span class="nb">puts</span> <span class="s2">&#34;TTL enabled&#34;</span>
-    <span class="k">end</span>
-  <span class="k">rescue</span> <span class="no">Aws</span><span class="o">::</span><span class="no">DynamoDB</span><span class="o">::</span><span class="no">Errors</span><span class="o">::</span><span class="no">ServiceError</span> <span class="o">=&gt;</span> <span class="n">e</span>
-    <span class="nb">puts</span> <span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">to_s</span>
-  <span class="k">end</span>
-
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl">  <span class="k">def</span> <span class="nf">update_table</span>
+</span></span><span class="line"><span class="cl">    <span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">update_time_to_live</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="ss">table_name</span><span class="p">:</span> <span class="s1">&#39;test-dev&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="ss">time_to_live_specification</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="ss">enabled</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="ss">attribute_name</span><span class="p">:</span> <span class="s2">&#34;ttl&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">time_to_live_specification</span><span class="o">.</span><span class="n">enabled</span>
+</span></span><span class="line"><span class="cl">      <span class="nb">puts</span> <span class="s2">&#34;TTL enabled&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">end</span>
+</span></span><span class="line"><span class="cl">  <span class="k">rescue</span> <span class="no">Aws</span><span class="o">::</span><span class="no">DynamoDB</span><span class="o">::</span><span class="no">Errors</span><span class="o">::</span><span class="no">ServiceError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">puts</span> <span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">to_s</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="writing-records-on-the-table">Writing records on the table</h3>
 <p>Writing records on the table is yet another simple task, you can use the below code and pass your record to add. What we are doing below is, we are calling <code>put_item</code> method with item and table name. Item consists of an object which can be multiple levels nested or flat, but must have the primary key attributes defined. As you already know, we can try new attributes on the fly and we only need to stick with the primary key attributes, others are all dynamically created.</p>
 <p><a href="https://docs.aws.amazon.com/sdk-for-ruby/v2/api/Aws/DynamoDB/Client.html#put_item-instance_method" target="_blank" rel="noopener noreffer">put_item</a> will add an item or replace the item if there&rsquo;s a primary key conflict.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -490,30 +487,30 @@ For updates aws provides <a href="https://docs.aws.amazon.com/sdk-for-ruby/v2/ap
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby">  <span class="k">def</span> <span class="nf">create_record</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-    <span class="n">client</span><span class="o">.</span><span class="n">put_item</span><span class="p">(</span>
-      <span class="ss">table_name</span><span class="p">:</span> <span class="s1">&#39;test-dev&#39;</span><span class="p">,</span>
-      <span class="ss">return_consumed_capacity</span><span class="p">:</span> <span class="s2">&#34;TOTAL&#34;</span><span class="p">,</span>
-      <span class="ss">item</span><span class="p">:</span> <span class="n">item</span>
-    <span class="p">)</span>
-  <span class="k">rescue</span> <span class="no">Aws</span><span class="o">::</span><span class="no">DynamoDB</span><span class="o">::</span><span class="no">Errors</span><span class="o">::</span><span class="no">ServiceError</span> <span class="o">=&gt;</span> <span class="n">e</span>
-    <span class="nb">puts</span> <span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">to_s</span>
-  <span class="k">end</span>
-
-  <span class="n">create_record</span><span class="p">({</span>
-    <span class="nb">id</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
-    <span class="ss">submitted_at</span><span class="p">:</span> <span class="mi">12</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">2020</span><span class="p">,</span>
-    <span class="nb">name</span><span class="p">:</span> <span class="s1">&#39;John Doe&#39;</span><span class="p">,</span>
-    <span class="ss">degree</span><span class="p">:</span> <span class="s1">&#39;BE&#39;</span>
-  <span class="p">})</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl">  <span class="k">def</span> <span class="nf">create_record</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">client</span><span class="o">.</span><span class="n">put_item</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">      <span class="ss">table_name</span><span class="p">:</span> <span class="s1">&#39;test-dev&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="ss">return_consumed_capacity</span><span class="p">:</span> <span class="s2">&#34;TOTAL&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="ss">item</span><span class="p">:</span> <span class="n">item</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="k">rescue</span> <span class="no">Aws</span><span class="o">::</span><span class="no">DynamoDB</span><span class="o">::</span><span class="no">Errors</span><span class="o">::</span><span class="no">ServiceError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">puts</span> <span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">to_s</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">create_record</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">id</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="ss">submitted_at</span><span class="p">:</span> <span class="mi">12</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">2020</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">name</span><span class="p">:</span> <span class="s1">&#39;John Doe&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="ss">degree</span><span class="p">:</span> <span class="s1">&#39;BE&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">})</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="fetching-records-from-the-table">Fetching records from the table</h3>
 <p>We can fetch a record by calling <code>get_item</code>, and we need to pass the primary key attributes (Both partition and sort key if both are created, or just partition key if there&rsquo;s only one primary key attribute).
 Let&rsquo;s use the <a href="https://docs.aws.amazon.com/sdk-for-ruby/v2/api/Aws/DynamoDB/Client.html#get_item-instance_method" target="_blank" rel="noopener noreffer">get_item</a> method and fetch the data we created just now.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -523,22 +520,22 @@ Let&rsquo;s use the <a href="https://docs.aws.amazon.com/sdk-for-ruby/v2/api/Aws
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby">  <span class="k">def</span> <span class="nf">fetch_record</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_item</span><span class="p">(</span><span class="ss">table_name</span><span class="p">:</span> <span class="s1">&#39;test-dev&#39;</span><span class="p">,</span> <span class="ss">key</span><span class="p">:</span> <span class="n">key</span><span class="p">)</span>
-    <span class="n">response</span><span class="o">.</span><span class="n">item</span>
-  <span class="k">rescue</span> <span class="no">Aws</span><span class="o">::</span><span class="no">DynamoDB</span><span class="o">::</span><span class="no">Errors</span><span class="o">::</span><span class="no">ServiceError</span> <span class="o">=&gt;</span> <span class="n">e</span>
-    <span class="nb">puts</span> <span class="n">e</span><span class="o">.</span><span class="n">message</span>
-  <span class="k">end</span>
-
-  <span class="n">fetch_record</span><span class="p">({</span> <span class="nb">id</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="ss">submitted_at</span><span class="p">:</span> <span class="mi">12</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">2020</span><span class="p">})</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl">  <span class="k">def</span> <span class="nf">fetch_record</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_item</span><span class="p">(</span><span class="ss">table_name</span><span class="p">:</span> <span class="s1">&#39;test-dev&#39;</span><span class="p">,</span> <span class="ss">key</span><span class="p">:</span> <span class="n">key</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">response</span><span class="o">.</span><span class="n">item</span>
+</span></span><span class="line"><span class="cl">  <span class="k">rescue</span> <span class="no">Aws</span><span class="o">::</span><span class="no">DynamoDB</span><span class="o">::</span><span class="no">Errors</span><span class="o">::</span><span class="no">ServiceError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">puts</span> <span class="n">e</span><span class="o">.</span><span class="n">message</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">fetch_record</span><span class="p">({</span> <span class="nb">id</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="ss">submitted_at</span><span class="p">:</span> <span class="mi">12</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">2020</span><span class="p">})</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="updating-a-record-on-the-table">Updating a record on the table</h3>
 <p>We can use <code>put_item</code> and replace the entire record, or we can also just update a non-primary key attribute.
 Here we need to use expressions to make the update call using <a href="https://docs.aws.amazon.com/sdk-for-ruby/v2/api/Aws/DynamoDB/Client.html#update_item-instance_method" target="_blank" rel="noopener noreffer">update_item</a>. DynamoDB provides us with some expressions like an SQL syntax we use, one of which is used here and is <code>set field = :the_variable_which_we_will_use_in_expression_attr_values</code>. In <code>update_expression</code> we are passing a string that resembles a query to let dynamo identify a field with a specific name, which we will use in the <code>expression_attribute_values</code> to set a value. In <code>return_values</code> option we are setting UPDATED_NEW to get back the updated data.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -551,24 +548,24 @@ Here we need to use expressions to make the update call using <a href="https://d
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby">  <span class="k">def</span> <span class="nf">update_record</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">new_value</span><span class="p">)</span>
-    <span class="n">client</span><span class="o">.</span><span class="n">update_item</span><span class="p">({</span>
-                         <span class="ss">table_name</span><span class="p">:</span> <span class="s1">&#39;test-dev&#39;</span><span class="p">,</span>
-                         <span class="ss">key</span><span class="p">:</span> <span class="n">key</span><span class="p">,</span>
-                         <span class="ss">update_expression</span><span class="p">:</span> <span class="s2">&#34;set </span><span class="si">#{</span><span class="n">field</span><span class="si">}</span><span class="s2"> = :field&#34;</span><span class="p">,</span>
-                         <span class="ss">expression_attribute_values</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;:field&#39;</span> <span class="o">=&gt;</span> <span class="n">new_value</span> <span class="p">},</span>
-                         <span class="ss">return_values</span><span class="p">:</span> <span class="s1">&#39;UPDATED_NEW&#39;</span>
-                       <span class="p">})</span>
-  <span class="k">rescue</span> <span class="no">Aws</span><span class="o">::</span><span class="no">DynamoDB</span><span class="o">::</span><span class="no">Errors</span><span class="o">::</span><span class="no">ServiceError</span> <span class="o">=&gt;</span> <span class="n">e</span>
-    <span class="nb">puts</span> <span class="n">e</span><span class="o">.</span><span class="n">message</span>
-  <span class="k">end</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl">  <span class="k">def</span> <span class="nf">update_record</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">new_value</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">client</span><span class="o">.</span><span class="n">update_item</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">                         <span class="ss">table_name</span><span class="p">:</span> <span class="s1">&#39;test-dev&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                         <span class="ss">key</span><span class="p">:</span> <span class="n">key</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                         <span class="ss">update_expression</span><span class="p">:</span> <span class="s2">&#34;set </span><span class="si">#{</span><span class="n">field</span><span class="si">}</span><span class="s2"> = :field&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                         <span class="ss">expression_attribute_values</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;:field&#39;</span> <span class="o">=&gt;</span> <span class="n">new_value</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">                         <span class="ss">return_values</span><span class="p">:</span> <span class="s1">&#39;UPDATED_NEW&#39;</span>
+</span></span><span class="line"><span class="cl">                       <span class="p">})</span>
+</span></span><span class="line"><span class="cl">  <span class="k">rescue</span> <span class="no">Aws</span><span class="o">::</span><span class="no">DynamoDB</span><span class="o">::</span><span class="no">Errors</span><span class="o">::</span><span class="no">ServiceError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">puts</span> <span class="n">e</span><span class="o">.</span><span class="n">message</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="deleting-a-table">Deleting a Table</h3>
 <p>Just to finish-up. Delete is as simple as expected.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -576,13 +573,13 @@ Here we need to use expressions to make the update call using <a href="https://d
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-ruby" data-lang="ruby">  <span class="k">def</span> <span class="nf">delete_table</span>
-    <span class="n">client</span><span class="o">.</span><span class="n">delete_table</span><span class="p">({</span> <span class="ss">table_name</span><span class="p">:</span> <span class="s1">&#39;test-dev&#39;</span> <span class="p">})</span>
-    <span class="nb">puts</span> <span class="s2">&#34;Table deletion process started, aws will delete it soon&#34;</span>
-  <span class="k">rescue</span> <span class="no">Aws</span><span class="o">::</span><span class="no">DynamoDB</span><span class="o">::</span><span class="no">Errors</span><span class="o">::</span><span class="no">ServiceError</span> <span class="o">=&gt;</span> <span class="n">e</span>
-    <span class="nb">puts</span> <span class="s2">&#34;Unable to delete table: </span><span class="si">#{</span><span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="si">}</span><span class="se">\n</span><span class="s2">&#34;</span>
-  <span class="k">end</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl">  <span class="k">def</span> <span class="nf">delete_table</span>
+</span></span><span class="line"><span class="cl">    <span class="n">client</span><span class="o">.</span><span class="n">delete_table</span><span class="p">({</span> <span class="ss">table_name</span><span class="p">:</span> <span class="s1">&#39;test-dev&#39;</span> <span class="p">})</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">puts</span> <span class="s2">&#34;Table deletion process started, aws will delete it soon&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">rescue</span> <span class="no">Aws</span><span class="o">::</span><span class="no">DynamoDB</span><span class="o">::</span><span class="no">Errors</span><span class="o">::</span><span class="no">ServiceError</span> <span class="o">=&gt;</span> <span class="n">e</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">puts</span> <span class="s2">&#34;Unable to delete table: </span><span class="si">#{</span><span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="si">}</span><span class="se">\n</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="some-other-apis-to-look-at">Some other APIs to look at</h2>
 <p>In the last section we saw some basic scaffolding for executing simple calls to dynamoDB. It can be of good use, and other than that we also have few other important APIs to look at. I will just describe them, and you can have a brief understanding of them, such that you know what to use, when you need it.</p>
