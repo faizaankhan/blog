@@ -9,9 +9,8 @@
 <meta property="og:description" content="I discuss the bare minimum concepts one needs to start working with DynamoDB, or to select DynamoDB for their application" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://faizaankhan.com/tech-dynamo-1/" /><meta property="og:image" content="https://faizaankhan.com/tech-dynamo-1/Featured.jpg"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2020-08-30T15:32:23&#43;00:00" />
-<meta property="article:modified_time" content="2020-08-30T15:32:23&#43;00:00" />
-
+<meta property="article:published_time" content="2020-08-30T15:32:23+00:00" />
+<meta property="article:modified_time" content="2020-08-30T15:32:23+00:00" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://faizaankhan.com/tech-dynamo-1/Featured.jpg"/>
 <meta name="twitter:title" content="Bare minimum approach on learning AWS DynamoDB"/>
@@ -33,7 +32,7 @@
                             "url": "https:\/\/faizaankhan.com\/tech-dynamo-1\/Featured.jpg",
                             "width":  6000 ,
                             "height":  2386 
-                        }],"genre": "posts","keywords": "AWS, Technical Articles, DynamoDB","wordcount":  1808 ,
+                        }],"genre": "posts","keywords": "AWS, Technical Articles, DynamoDB","wordcount":  1783 ,
         "url": "https:\/\/faizaankhan.com\/tech-dynamo-1\/","datePublished": "2020-08-30T15:32:23+00:00","dateModified": "2020-08-30T15:32:23+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Faizaan Ahmed Khan","logo": {
@@ -115,7 +114,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Bare minimum approach on learning AWS DynamoDB</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://faizaankhan.com/about" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>Faizaan Ahmed Khan</a></span>&nbsp;<span class="post-category">included in <a href="/categories/tech/"><i class="far fa-folder fa-fw"></i>Tech</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-08-30">2020-08-30</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1808 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-08-30">2020-08-30</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1783 words&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;9 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -179,7 +178,7 @@ a few data duplication. Like you don&rsquo;t go ahead and make a table to store 
 <p>An Example of Data stored in a Key-Value Store:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -193,19 +192,19 @@ a few data duplication. Like you don&rsquo;t go ahead and make a table to store 
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
-  <span class="nt">&#34;CarType&#34;</span><span class="p">:</span> <span class="s2">&#34;Sedan&#34;</span><span class="p">,</span>
-  <span class="nt">&#34;Name&#34;</span><span class="p">:</span> <span class="s2">&#34;Maserati Ghibli&#34;</span><span class="p">,</span>
-  <span class="nt">&#34;Price&#34;</span><span class="p">:</span> <span class="s2">&#34;$10,000&#34;</span>
-  <span class="err">&lt;..other</span> <span class="err">attributes&gt;</span>
-<span class="p">}</span><span class="err">,</span>
-<span class="p">{</span>
-  <span class="nt">&#34;CarType&#34;</span><span class="p">:</span> <span class="s2">&#34;Hatchback&#34;</span><span class="p">,</span>
-  <span class="nt">&#34;Name&#34;</span><span class="p">:</span> <span class="s2">&#34;Volkswagon Polo&#34;</span><span class="p">,</span>
-  <span class="nt">&#34;Price&#34;</span><span class="p">:</span> <span class="s2">&#34;$5,000&#34;</span>
-  <span class="err">&lt;..other</span> <span class="err">attributes&gt;</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;CarType&#34;</span><span class="p">:</span> <span class="s2">&#34;Sedan&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Name&#34;</span><span class="p">:</span> <span class="s2">&#34;Maserati Ghibli&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Price&#34;</span><span class="p">:</span> <span class="s2">&#34;$10,000&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="err">&lt;..other</span> <span class="err">attributes&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span><span class="err">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;CarType&#34;</span><span class="p">:</span> <span class="s2">&#34;Hatchback&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Name&#34;</span><span class="p">:</span> <span class="s2">&#34;Volkswagon Polo&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Price&#34;</span><span class="p">:</span> <span class="s2">&#34;$5,000&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="err">&lt;..other</span> <span class="err">attributes&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="how-to-select-the-right-db-to-use-">How to select the right DB to use ?</h2>
 <p>Though we already have a selection of DynamoDB in this post here, it&rsquo;s of great importance that you know what you are using and why. What comes in handy for choosing what you need is the popular CAP theorem by Eric Brewer for distributed systems. Since NoSQL databases are in generally largely distributed systems, people have used it in the selection of their NoSQL DB.</p>
@@ -217,7 +216,7 @@ a few data duplication. Like you don&rsquo;t go ahead and make a table to store 
 </ul>
 <p>Here&rsquo;s an image which is a nice depiction of the above 3 properties.</p>
 <p>You can see that, DynamoDB provides us with Availability and Partition Tolerance, but doesn&rsquo;t guarantee Consistency. Although as of 2020 AWS has a strongly consistent and transactional consistent model, where AWS promises data consistency, it&rsquo;s not the best player in that area.</p>
-<p><br /></p>
+<br />
 <p><figure><a class="lightgallery" href="/tech-dynamo-1/cap_theorem.png" title="/tech-dynamo-1/cap_theorem.png" data-thumbnail="/tech-dynamo-1/cap_theorem.png" data-sub-html="<h2>CAP Theorem (Click to Expand)</h2>">
         <img
             class="lazyload"
@@ -293,7 +292,7 @@ You can obviously use it from other services like a GCP, but that won&rsquo;t be
 <p>In the example above, one item can be represented in JSON data as:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -301,13 +300,13 @@ You can obviously use it from other services like a GCP, but that won&rsquo;t be
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
-  <span class="nt">&#34;UUID&#34;</span><span class="p">:</span> <span class="mi">1212-3322-5861-9865</span><span class="p">,</span>
-  <span class="nt">&#34;StudentName&#34;</span><span class="p">:</span> <span class="err">&#39;Ram&#39;</span><span class="p">,</span>
-  <span class="nt">&#34;MathsScore&#34;</span><span class="p">:</span> <span class="mi">59</span><span class="p">,</span>
-  <span class="nt">&#34;BioScore&#34;</span><span class="p">:</span> <span class="mi">98</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;UUID&#34;</span><span class="p">:</span> <span class="mi">1212-3322-5861-9865</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;StudentName&#34;</span><span class="p">:</span> <span class="err">&#39;Ram&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;MathsScore&#34;</span><span class="p">:</span> <span class="mi">59</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;BioScore&#34;</span><span class="p">:</span> <span class="mi">98</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>What&rsquo;s different about a DynamoDB table is that you have the freedom to select a
 primary key while keeping all other columns dynamic. So in the above example, you can keeping adding different kinds of scores or any other information.</p>
@@ -423,13 +422,13 @@ partition and sort keys, so in the above example we have UUID, but uniqueness is
 <p>DynamoDB is one of the easiest no-sql databases to start working with, but as you keep exploring you can dive deeper into understanding its capabilities. In a follow-up article, I will be writing about indexes, read and write capacity units, API functions, and I will give a walkthrough on how you can use AWS APIs to create and manage a DyanmoDB table and show some CRUD operations.</p>
 <h2 id="references">References</h2>
 <p>Here are a few links this article takes inspiration from.</p>
-<p><a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html">https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html</a> (AWS ecosystem example image)
-<a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.html">https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.html</a>
-<a href="https://medium.com/tensult/core-concepts-of-amazon-dynamodb-a265a3fc70a">https://medium.com/tensult/core-concepts-of-amazon-dynamodb-a265a3fc70a</a>
-<a href="https://opensourceforu.com/2017/05/different-types-nosql-databases/">https://opensourceforu.com/2017/05/different-types-nosql-databases/</a>
-<a href="https://www.3pillarglobal.com/insights/exploring-the-different-types-of-nosql-databases">https://www.3pillarglobal.com/insights/exploring-the-different-types-of-nosql-databases</a>
-<a href="https://www.mysoftkey.com/architecture/understanding-of-cap-theorem/">https://www.mysoftkey.com/architecture/understanding-of-cap-theorem/</a>  (CAP Theorem Diagram)
-<a href="https://www.geeksforgeeks.org/introduction-to-nosql/">https://www.geeksforgeeks.org/introduction-to-nosql/</a></p>
+<p><a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html" target="_blank" rel="noopener noreffer">https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html</a> (AWS ecosystem example image)
+<a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.html" target="_blank" rel="noopener noreffer">https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.html</a>
+<a href="https://medium.com/tensult/core-concepts-of-amazon-dynamodb-a265a3fc70a" target="_blank" rel="noopener noreffer">https://medium.com/tensult/core-concepts-of-amazon-dynamodb-a265a3fc70a</a>
+<a href="https://opensourceforu.com/2017/05/different-types-nosql-databases/" target="_blank" rel="noopener noreffer">https://opensourceforu.com/2017/05/different-types-nosql-databases/</a>
+<a href="https://www.3pillarglobal.com/insights/exploring-the-different-types-of-nosql-databases" target="_blank" rel="noopener noreffer">https://www.3pillarglobal.com/insights/exploring-the-different-types-of-nosql-databases</a>
+<a href="https://www.mysoftkey.com/architecture/understanding-of-cap-theorem/" target="_blank" rel="noopener noreffer">https://www.mysoftkey.com/architecture/understanding-of-cap-theorem/</a>  (CAP Theorem Diagram)
+<a href="https://www.geeksforgeeks.org/introduction-to-nosql/" target="_blank" rel="noopener noreffer">https://www.geeksforgeeks.org/introduction-to-nosql/</a></p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">

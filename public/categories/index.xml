@@ -1,0 +1,29 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Categories - Category - Faizaan Khan</title>
+        <link>https://faizaankhan.com/categories/</link>
+        <description>Categories - Category - Faizaan Khan</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>faizaan[dot]khan3@gmail[dot]com (Faizaan)</managingEditor>
+            <webMaster>faizaan[dot]khan3@gmail[dot]com (Faizaan)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sat, 01 May 2021 00:32:23 &#43;0000</lastBuildDate><atom:link href="https://faizaankhan.com/categories/" rel="self" type="application/rss+xml" /><item>
+    <title>Guest</title>
+    <link>https://faizaankhan.com/categories/guest/</link>
+    <pubDate>Sat, 01 May 2021 00:32:23 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://faizaankhan.com/categories/guest/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>Tech</title>
+    <link>https://faizaankhan.com/categories/tech/</link>
+    <pubDate>Sat, 01 May 2021 00:32:23 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://faizaankhan.com/categories/tech/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>Personal</title>
+    <link>https://faizaankhan.com/categories/personal/</link>
+    <pubDate>Sun, 16 Aug 2020 12:51:06 &#43;0530</pubDate>
+    <author>Author</author>
+    <guid>https://faizaankhan.com/categories/personal/</guid>
+    <description><![CDATA[]]></description>
+</item></channel>
+</rss>

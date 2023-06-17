@@ -9,9 +9,8 @@
 <meta property="og:description" content="In this post I intend to provide the readers with basic concepts they need to start working with elasticsearch, and then carve their way to understanding it deeply themselves while using it" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://faizaankhan.com/tech-elasticsearch-1/" /><meta property="og:image" content="https://faizaankhan.com/tech-elasticsearch-1/Featured.jpg"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2020-10-02T15:32:23&#43;00:00" />
-<meta property="article:modified_time" content="2020-10-02T15:32:23&#43;00:00" />
-
+<meta property="article:published_time" content="2020-10-02T15:32:23+00:00" />
+<meta property="article:modified_time" content="2020-10-02T15:32:23+00:00" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://faizaankhan.com/tech-elasticsearch-1/Featured.jpg"/>
 <meta name="twitter:title" content="Getting familiar with Elasticsearch"/>
@@ -33,7 +32,7 @@
                             "url": "https:\/\/faizaankhan.com\/tech-elasticsearch-1\/Featured.jpg",
                             "width":  5954 ,
                             "height":  2284 
-                        }],"genre": "posts","keywords": "Technical Articles, Elasticsearch","wordcount":  2330 ,
+                        }],"genre": "posts","keywords": "Technical Articles, Elasticsearch","wordcount":  2279 ,
         "url": "https:\/\/faizaankhan.com\/tech-elasticsearch-1\/","datePublished": "2020-10-02T15:32:23+00:00","dateModified": "2020-10-02T15:32:23+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "Faizaan Ahmed Khan","logo": {
@@ -115,7 +114,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Getting familiar with Elasticsearch</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="www.faizaankhan.com" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Faizaan Ahmed Khan</a></span>&nbsp;<span class="post-category">included in <a href="/categories/tech/"><i class="far fa-folder fa-fw"></i>Tech</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-10-02">2020-10-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;2330 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-10-02">2020-10-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;2279 words&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;11 minutes&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -302,20 +301,20 @@ So after <a href="https://www.elastic.co/guide/en/elasticsearch/reference/curren
 <p>For creating an index you can send a put request to elasticsearch, with the index_name(example-index here) in the URL which you would like to create.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">curl -X PUT &#34;localhost:9200/example-index&#34;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">curl -X PUT &#34;localhost:9200/example-index&#34;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>To view all the indices we can do a simple get request as</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">curl -X GET &#34;localhost:9200/_cat/indices?v&#34;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">curl -X GET &#34;localhost:9200/_cat/indices?v&#34;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><figure><a class="lightgallery" href="/tech-elasticsearch-1/creating_index.png" title="/tech-elasticsearch-1/creating_index.png" data-thumbnail="/tech-elasticsearch-1/creating_index.png" data-sub-html="<h2>Creating an index</h2>">
         <img
@@ -341,7 +340,7 @@ So after <a href="https://www.elastic.co/guide/en/elasticsearch/reference/curren
 <p>Other important field types include date and booleans. <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.8/mapping-types.html" target="_blank" rel="noopener noreffer">See here for reading about all data types</a></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -368,31 +367,31 @@ So after <a href="https://www.elastic.co/guide/en/elasticsearch/reference/curren
 </span><span class="lnt">25
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">curl -X PUT <span class="s2">&#34;localhost:9200/example-index-with-mapping?pretty&#34;</span> -H <span class="s1">&#39;Content-Type: application/json&#39;</span> -d <span class="s1">&#39;
-</span><span class="s1">{
-</span><span class="s1">  &#34;mappings&#34;: {
-</span><span class="s1">    &#34;_doc&#34;:{
-</span><span class="s1">      &#34;properties&#34;: {
-</span><span class="s1">        &#34;id&#34;: { &#34;type&#34;: &#34;integer&#34; },
-</span><span class="s1">        &#34;first_name&#34;: { &#34;type&#34;: &#34;text&#34; },
-</span><span class="s1">        &#34;last_name&#34;: { &#34;type&#34;: &#34;keyword&#34; },
-</span><span class="s1">        &#34;resume&#34;: {
-</span><span class="s1">          &#34;type&#34;: &#34;nested&#34;,
-</span><span class="s1">          &#34;properties&#34;: {
-</span><span class="s1">            &#34;id&#34;: { &#34;type&#34;: &#34;integer&#34; },
-</span><span class="s1">            &#34;file_name&#34;: { &#34;type&#34;: &#34;text&#34; }
-</span><span class="s1">          }
-</span><span class="s1">        },
-</span><span class="s1">        &#34;education&#34;: {
-</span><span class="s1">          &#34;properties&#34;: {
-</span><span class="s1">            &#34;id&#34;: { &#34;type&#34;: &#34;integer&#34; },
-</span><span class="s1">            &#34;name&#34;: { &#34;type&#34;: &#34;keyword&#34; }
-</span><span class="s1">          }
-</span><span class="s1">        }
-</span><span class="s1">      }
-</span><span class="s1">    }
-</span><span class="s1">  }
-</span><span class="s1">}&#39;</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X PUT <span class="s2">&#34;localhost:9200/example-index-with-mapping?pretty&#34;</span> -H <span class="s1">&#39;Content-Type: application/json&#39;</span> -d <span class="s1">&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">{
+</span></span></span><span class="line"><span class="cl"><span class="s1">  &#34;mappings&#34;: {
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;_doc&#34;:{
+</span></span></span><span class="line"><span class="cl"><span class="s1">      &#34;properties&#34;: {
+</span></span></span><span class="line"><span class="cl"><span class="s1">        &#34;id&#34;: { &#34;type&#34;: &#34;integer&#34; },
+</span></span></span><span class="line"><span class="cl"><span class="s1">        &#34;first_name&#34;: { &#34;type&#34;: &#34;text&#34; },
+</span></span></span><span class="line"><span class="cl"><span class="s1">        &#34;last_name&#34;: { &#34;type&#34;: &#34;keyword&#34; },
+</span></span></span><span class="line"><span class="cl"><span class="s1">        &#34;resume&#34;: {
+</span></span></span><span class="line"><span class="cl"><span class="s1">          &#34;type&#34;: &#34;nested&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s1">          &#34;properties&#34;: {
+</span></span></span><span class="line"><span class="cl"><span class="s1">            &#34;id&#34;: { &#34;type&#34;: &#34;integer&#34; },
+</span></span></span><span class="line"><span class="cl"><span class="s1">            &#34;file_name&#34;: { &#34;type&#34;: &#34;text&#34; }
+</span></span></span><span class="line"><span class="cl"><span class="s1">          }
+</span></span></span><span class="line"><span class="cl"><span class="s1">        },
+</span></span></span><span class="line"><span class="cl"><span class="s1">        &#34;education&#34;: {
+</span></span></span><span class="line"><span class="cl"><span class="s1">          &#34;properties&#34;: {
+</span></span></span><span class="line"><span class="cl"><span class="s1">            &#34;id&#34;: { &#34;type&#34;: &#34;integer&#34; },
+</span></span></span><span class="line"><span class="cl"><span class="s1">            &#34;name&#34;: { &#34;type&#34;: &#34;keyword&#34; }
+</span></span></span><span class="line"><span class="cl"><span class="s1">          }
+</span></span></span><span class="line"><span class="cl"><span class="s1">        }
+</span></span></span><span class="line"><span class="cl"><span class="s1">      }
+</span></span></span><span class="line"><span class="cl"><span class="s1">    }
+</span></span></span><span class="line"><span class="cl"><span class="s1">  }
+</span></span></span><span class="line"><span class="cl"><span class="s1">}&#39;</span></span></span></code></pre></td></tr></table>
 </div>
 </div>
 <br/>
@@ -412,7 +411,7 @@ So after <a href="https://www.elastic.co/guide/en/elasticsearch/reference/curren
 <p>You can notice that we send a simple object containing the details of whichever field we want to add, there is no compulsion that we send values for all fields which we defined in the mapping.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -423,16 +422,16 @@ So after <a href="https://www.elastic.co/guide/en/elasticsearch/reference/curren
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">curl -X PUT <span class="s2">&#34;localhost:9200/example-index-with-mapping/_doc/1?pretty&#34;</span> -H <span class="s1">&#39;Content-Type: application/json&#39;</span> -d <span class="s1">&#39;
-</span><span class="s1">{
-</span><span class="s1">  &#34;education&#34;: [
-</span><span class="s1">    {&#34;id&#34;:&#34;1&#34;,&#34;name&#34;:&#34;BTech&#34;},
-</span><span class="s1">    {&#34;id&#34;:&#34;2&#34;,&#34;name&#34;:&#34;HS&#34;}
-</span><span class="s1">  ],
-</span><span class="s1">  &#34;first_name&#34;: &#34;Rahul&#34;,
-</span><span class="s1">  &#34;last_name&#34;:&#34;Shah&#34;
-</span><span class="s1">}&#39;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X PUT <span class="s2">&#34;localhost:9200/example-index-with-mapping/_doc/1?pretty&#34;</span> -H <span class="s1">&#39;Content-Type: application/json&#39;</span> -d <span class="s1">&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">{
+</span></span></span><span class="line"><span class="cl"><span class="s1">  &#34;education&#34;: [
+</span></span></span><span class="line"><span class="cl"><span class="s1">    {&#34;id&#34;:&#34;1&#34;,&#34;name&#34;:&#34;BTech&#34;},
+</span></span></span><span class="line"><span class="cl"><span class="s1">    {&#34;id&#34;:&#34;2&#34;,&#34;name&#34;:&#34;HS&#34;}
+</span></span></span><span class="line"><span class="cl"><span class="s1">  ],
+</span></span></span><span class="line"><span class="cl"><span class="s1">  &#34;first_name&#34;: &#34;Rahul&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s1">  &#34;last_name&#34;:&#34;Shah&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">}&#39;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><br/>
 <p><figure><a class="lightgallery" href="/tech-elasticsearch-1/indexing_a_document.png" title="/tech-elasticsearch-1/indexing_a_document.png" data-thumbnail="/tech-elasticsearch-1/indexing_a_document.png" data-sub-html="<h2>Indexing a document in the elasticsearch index</h2>">
@@ -450,7 +449,7 @@ So after <a href="https://www.elastic.co/guide/en/elasticsearch/reference/curren
 <p>Searching for a text in the index is about writing queries, here I have a basic match query which aims to find documents where the last_name field has the word &ldquo;Shah&rdquo;. You can see in the output we get back the document which has that last_name.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -462,17 +461,17 @@ So after <a href="https://www.elastic.co/guide/en/elasticsearch/reference/curren
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">curl -X GET <span class="s2">&#34;localhost:9200/example-index-with-mapping/_search?pretty&#34;</span> -H<span class="se">\
-</span><span class="se"></span><span class="s1">&#39;Content-Type: application/json&#39;</span> -d <span class="s1">&#39; {
-</span><span class="s1">  &#34;query&#34;: {
-</span><span class="s1">    &#34;match&#34;: {
-</span><span class="s1">      &#34;last_name&#34;: {
-</span><span class="s1">        &#34;query&#34;: &#34;Shah&#34;
-</span><span class="s1">      }
-</span><span class="s1">    }
-</span><span class="s1">  }
-</span><span class="s1">}&#39;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X GET <span class="s2">&#34;localhost:9200/example-index-with-mapping/_search?pretty&#34;</span> -H<span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span><span class="s1">&#39;Content-Type: application/json&#39;</span> -d <span class="s1">&#39; {
+</span></span></span><span class="line"><span class="cl"><span class="s1">  &#34;query&#34;: {
+</span></span></span><span class="line"><span class="cl"><span class="s1">    &#34;match&#34;: {
+</span></span></span><span class="line"><span class="cl"><span class="s1">      &#34;last_name&#34;: {
+</span></span></span><span class="line"><span class="cl"><span class="s1">        &#34;query&#34;: &#34;Shah&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s1">      }
+</span></span></span><span class="line"><span class="cl"><span class="s1">    }
+</span></span></span><span class="line"><span class="cl"><span class="s1">  }
+</span></span></span><span class="line"><span class="cl"><span class="s1">}&#39;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><br/>
 <p><figure><a class="lightgallery" href="/tech-elasticsearch-1/searching_a_document.png" title="/tech-elasticsearch-1/searching_a_document.png" data-thumbnail="/tech-elasticsearch-1/searching_a_document.png" data-sub-html="<h2>Searching the text Shah in our index</h2>">
